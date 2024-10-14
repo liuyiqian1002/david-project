@@ -38,7 +38,12 @@ module.exports = {
             .rule('images')
             .use('url-loader')
             .loader('url-loader')
-            .tap(options => Object.assign(options, { limit: 20000 }))
+            .tap(options => {
+                options.fallback.options.name = 'img/[name].[hash:8].[ext]'
+                options.fallback.options.limit = 10000
+                options.esModule = false
+                return options
+            })
     },
     // 设为false打包时不生成.map文件
     productionSourceMap: false,
