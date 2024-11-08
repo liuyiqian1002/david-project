@@ -71,7 +71,15 @@ export default [
         },
         component: () =>
             import ('@/views/contract.vue')
-            // component: resolve => require(['@/views/RetPassword/RetPassword.vue'],resolve)
+    },
+    {
+        path: '/futures',
+        name: 'futures',
+        meta: {
+            title: '{{contract.title}}',
+        },
+        component: () =>
+            import ('@/views/futures.vue')
     },
     {
         path: '/acc_record',

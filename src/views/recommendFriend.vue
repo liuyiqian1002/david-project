@@ -1,12 +1,12 @@
 <template>
   <div class="recommend_friend_wrap">
-    <van-nav-bar
+    <!-- <van-nav-bar
       :title="$t('recommendFriend.title')"
       :placeholder="true"
       fixed
       left-arrow
       @click-left="$router.go(-1)"
-    />
+    /> -->
     <div>
       <!-- <div id="qrcode" ></div> -->
       <van-tabs
@@ -14,8 +14,6 @@
         @change="changeTab"
         swipeable
         animated
-        :offset-top="46"
-        :sticky="true"
       >
         <van-tab :title="$t('recommendFriend.nav')">
           <div class="invitation_code">
@@ -253,6 +251,8 @@ export default {
           background:transparent;
         }
   .van-tabs__wrap {
+    width: 900px;
+    margin: 50px 0 0 50px;
     padding: 20px 0;
     background: @panel_color;
   }
@@ -310,7 +310,7 @@ export default {
 </style>
 <style lang="less" >
   .recommend_friend_wrap {
-    background-color: @background-color;
+    // background-color: @background-color;
     .van-list__finished-text,
     .van-empty__description{
       color:@font_color;
@@ -344,6 +344,7 @@ export default {
     }
     .van-tab {
       width: 190px !important;
+      font-size: 22px;
       // flex: unset;
     }
     .van-tabs__nav--card {
@@ -356,6 +357,9 @@ export default {
       width: 130px;
     }
     .van-tabs--card > .van-tabs__wrap {
+      height: 80px !important;
+    }
+    .van-tabs--line .van-tabs__wrap {
       height: 80px;
     }
     .van-tabs__wrap {
@@ -389,12 +393,12 @@ export default {
   .recommend_friend_wrap {
     height: 100vh;
     .invitation_code {
-      padding-top: 40px;
+      margin: 20px 0 !important;
       .main{
         width: 90%;
-        height: 886px;
+        height: 506px;
         margin: 0 auto;
-        background: url(../assets/images/common/invitation.png) 100% 100%;
+        background: #1e2431; //url(../assets/images/common/invitation.png) 100% 100%;
         background-size: cover;
         color:@font_3_color;
         border-radius: 5px;
@@ -405,22 +409,21 @@ export default {
           width: 100%;
           height: 120px;
           position: absolute;
-          bottom: -5px;
           background-size: 100%;
         }
         padding: 40px 0 0 ;
         .title{
-          font-size: 30px;
+          font-size: 24px;
           font-weight: 400;
           color: @font_2_color;
         }
         .code_num{
           color: @main2_color;
-          font-size: 64px;
+          font-size: 48px;
           font-weight: 500;
         }
         .tips{
-          font-size: 30px;
+          font-size: 20px;
           width: 560px;
           text-align: center;
           margin: 20px auto;
@@ -439,8 +442,8 @@ export default {
       }
       .pic {
         width: 400px;
-        height: 400px;
-        margin: 100px auto 0 auto;
+        height: 160px;
+        margin: 0px auto 0 auto;
         position: relative;
         // border-top :1px solid #eee;
         // background: url(../assets/images/common/ic_kuang.png) no-repeat;
@@ -459,7 +462,7 @@ export default {
         width: 360px;
         margin: 40px auto;
         button{
-          height: 100px;
+          height: 50px;
           background-color: #fff;
           border-radius: 15px;
           color: @font_3_color;

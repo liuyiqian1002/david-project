@@ -1,6 +1,6 @@
 <template>
   <div class="market_wrap">
-    <van-nav-bar
+    <!-- <van-nav-bar
       :title="$t('market.title')"
       :placeholder="true"
       fixed
@@ -13,54 +13,62 @@
           size="18"
         />
       </template>
-    </van-nav-bar>
-    <div>
-      <van-tabs
-        @change="changeNav"
-        sticky
-        swipeable
-        animated
-        offset-top="46"
-        :border="false"
-        color="#fff"
-        line-width="40"
-        title-active-color="#65BD8D"
-      >
-        <van-tab v-for="(i, index) in navListL" :title="i.ItemValue" :key="index">
-          <div class="content">
-            <!-- <van-list
+    </van-nav-bar> -->
+    <sheader></sheader>
+    <div class="content-wr">
+      <div class="list-wrapper">
+        <van-tabs
+          @change="changeNav"
+          swipeable
+          animated
+          :border="false"
+          color="#fff"
+          line-width="40"
+          title-active-color="#65BD8D"
+        >
+          <van-tab
+            v-for="(i, index) in navListL"
+            :title="i.ItemValue"
+            :key="index"
+          >
+            <div class="content">
+              <!-- <van-list
                         v-model="loading"
                         :finished="finished"
                         finished-text="没有更多了"
                         @load="onLoad"
                     > -->
-            <ul v-for="(i, index) in SymbolsList" @click="toKline(i)" :key="index">
-              <li>
-                <div>
-                  <p>
-                    {{ i.BaseCurrency }}<span>/{{ i.QuoteCurrency }}</span>
-                  </p>
-                  <p>24H {{ i.Amount | formatUnit }}</p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <p>{{ i.ClosePrice }}</p>
-                  <p>≈${{ i.Buy1Price | decimals(2) }}</p>
-                </div>
-              </li>
-              <li>
-                <div
-                  :class="[
-                    { down: i.RisingValue < 0 },
-                    { up: i.RisingValue >= 0 },
-                  ]"
-                >
-                  {{ gainRate(i) }}%
-                </div>
-              </li>
-            </ul>
-            <!-- <ul>
+              <ul
+                v-for="(i, index) in SymbolsList"
+                @click="toKline(i)"
+                :key="index"
+              >
+                <li>
+                  <div>
+                    <p>
+                      {{ i.BaseCurrency }}<span>/{{ i.QuoteCurrency }}</span>
+                    </p>
+                    <p>24H {{ i.Amount | formatUnit }}</p>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <p>{{ i.ClosePrice }}</p>
+                    <p>≈${{ i.Buy1Price | decimals(2) }}</p>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    :class="[
+                      { down: i.RisingValue < 0 },
+                      { up: i.RisingValue >= 0 },
+                    ]"
+                  >
+                    {{ gainRate(i) }}%
+                  </div>
+                </li>
+              </ul>
+              <!-- <ul>
                     <li>
                     <div>
                         <p>BTC<span>/USDT</span></p>
@@ -79,19 +87,24 @@
                     </div>
                     </li>
                 </ul> -->
-            <!-- </van-list> -->
-          </div>
-        </van-tab>
-      </van-tabs>
+              <!-- </van-list> -->
+            </div>
+          </van-tab>
+        </van-tabs>
+      </div>
+      <div class="k-line-wrapper">
+        <trad :symbolId="symbolId"/>
+      </div>
     </div>
     <search @changeSt="closrSearch" Flag="2" @search="search" :nShow="nShow" />
-    <mainFooter />
+    <sfooter />
   </div>
 </template>
 
 <script>
 import mainFooter from "@/components/mainFooter";
 import search from "@/components/search";
+import trad from "./trad";
 import { GetSymbolsArea, GetSymbolsPageList } from "@/api";
 import {
   Icon,
@@ -101,7 +114,6 @@ import {
   Popup,
   Tab,
   Tabs,
-  PasswordInput,
   Empty,
   List,
   Sticky,
@@ -122,6 +134,7 @@ export default {
     [List.name]: List,
     search,
     mainFooter,
+    trad,
   },
   data() {
     return {
@@ -132,6 +145,7 @@ export default {
       finished: false,
       refreshing: false,
       SymbolsList: [],
+      symbolId: "",
       Time: "",
       AreaId: "Default",
       PageIndex: 1,
@@ -188,10 +202,12 @@ export default {
       });
     },
     changeNav(i) {
+      console.log(this.navListL[i],'this.navListL[i]');
       let ItemDetailId = this.navListL[i].ItemDetailId;
       console.log(ItemDetailId);
       this.AreaId = ItemDetailId;
       this.SymbolsList = [];
+      // this.symbolId = ItemDetailId;
       this.PageIndex = 1;
       this.finished = false;
       clearInterval(this.time);
@@ -222,6 +238,7 @@ export default {
         console.log(r.data);
         if (r.data.Code == 200) {
           this.SymbolsList = r.data.Data.DataList;
+          this.symbolId = this.SymbolsList[0].SymbolsId;
           let Symbols = btoa(JSON.stringify(this.SymbolsList));
           localStorage.setItem("Symbols", Symbols);
           this.loading = false;
@@ -246,12 +263,14 @@ export default {
     toKline(i) {
       localStorage.setItem("SymbolsIdTiem", JSON.stringify(i));
       localStorage.setItem("path", "deal");
-      this.$router.push({
-        path: "/trad",
-        query: {
-          SymbolsId: i.SymbolsId,
-        },
-      });
+      this.symbolId = i.SymbolsId;
+      // this.symbol = i;
+      // this.$router.push({
+      //   path: "/trad",
+      //   query: {
+      //     SymbolsId: i.SymbolsId,
+      //   },
+      // });
     },
   },
   destroyed() {
@@ -277,14 +296,27 @@ body {
 // }
 
 .market_wrap {
-  .van-tabs__wrap{
+  .content-wr {
+    display: flex;
+    justify-content: flex-start;
+    margin: 40px 0 0 0;
+    .list-wrapper {
+      width: 500px;
+      margin-left: 30px;
+    }
+    .k-line-wrapper {
+      width: 1100px;
+      margin-left: 40px;
+    }
+  }
+  .van-tabs__wrap {
     background: @bg2_color;
   }
-  .van-tabs__nav{
+  .van-tabs__nav {
     background: transparent;
-    .van-tab{
+    .van-tab {
       background: transparent;
-      .van-tab{
+      .van-tab {
         color: @font_color !important;
       }
     }
@@ -318,13 +350,14 @@ body {
     }
   }
   .van-tab--active {
-    .van-tab__text{
+    .van-tab__text {
       font-weight: bold;
-      font-size: 48px;
+      font-size: 22px;
       color: #fff !important;
-      transform: scale(0.6);
+      // transform: scale(0.6);
       border-radius: 28px;
-      background: @btn-background-linear;
+      // background: @btn-background-linear;
+      border-bottom: 3px solid @btn-background-linear;
     }
   }
 }
@@ -346,8 +379,8 @@ body {
   //     }
   // }
   .content {
-    padding: 80px 20px 120px 20px;
-    background-color: @bg_color;
+    // padding: 80px 20px 120px 20px;
+    // background-color: @bg_color;
     ul {
       display: flex;
       justify-content: space-between;
@@ -355,7 +388,7 @@ body {
       padding: 10px 0;
       align-items: center;
       border-bottom: 1px solid #252525;
-      background: @bg2_color;
+      // background: @bg2_color;
       .bot_br;
       li {
         width: 33.33%;
@@ -364,10 +397,10 @@ body {
             p {
               &:nth-of-type(1) {
                 font-weight: 500;
-                font-size: 32px;
+                font-size: 20px;
                 color: @font_3_color;
                 span {
-                  font-size: 18px;
+                  font-size: 14px;
                   color: @font_color;
                   margin-left: 5px;
                 }
@@ -384,21 +417,21 @@ body {
           p {
             &:nth-of-type(1) {
               font-weight: 500;
-              font-size: 36px;
+              font-size: 20px;
               color: @font_3_color;
             }
             &:nth-of-type(2) {
               font-weight: 600;
               color: @minor-font-color;
-              font-size: 20px;
+              font-size: 14px;
             }
           }
           text-align: center;
         }
         &:nth-of-type(3) {
           div {
-            width: 180px;
-            height: 60px;
+            width: 100px;
+            height: 24px;
             display: flex;
             align-items: center;
             justify-content: center;

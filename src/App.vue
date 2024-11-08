@@ -19,8 +19,8 @@ var dx,dy
 var screenWidth = window.screen.width
 var screenHeight = window.screen.height
 import {  mapState } from "vuex";
-import { isWechat, getQueryString } from "@/libs/tools";
-import { setToken, getToken, localSave, localRead } from "@/libs/util";
+// import { isWechat, getQueryString } from "@/libs/tools";
+// import { setToken, getToken, localSave, localRead } from "@/libs/util";
 import { Locale } from 'vant';
 import enUS from '@/assets/i18n/lang/en-US';
 import jaJP from '@/assets/i18n/lang/ar-sa';

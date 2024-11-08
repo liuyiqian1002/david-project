@@ -1,14 +1,16 @@
 <template>
   <div class="bind_acc_wrap">
-    <van-nav-bar
-      :title="type=='mobile'?$t('bindAccount.phone'):$t('bindAccount.email')"
+    <!-- <van-nav-bar
+      :title="
+        type == 'mobile' ? $t('bindAccount.phone') : $t('bindAccount.email')
+      "
       left-text
       left-arrow
       @click-left="$router.push(redirect)"
-    />
+    /> -->
     <div class="content">
       <div v-show="type == 'email'">
-        <label>{{$t('login.navEmail')}}</label>
+        <label>{{ $t("login.navEmail") }}</label>
         <div class="item">
           <input
             v-model="Email"
@@ -18,7 +20,7 @@
         </div>
       </div>
       <div v-show="type == 'mobile'">
-        <label>{{$t('login.navPhone')}}</label>
+        <label>{{ $t("login.navPhone") }}</label>
         <div class="item phone">
           <span @click="showSelPhoneAre = true">+{{ PhoneAre }}</span
           ><input
@@ -28,7 +30,7 @@
           /><b v-show="Phone" @click="delTxt('Phone')"></b>
         </div>
       </div>
-      <label>{{$t('withdraw.Code')}}</label>
+      <label>{{ $t("withdraw.Code") }}</label>
       <div class="item vcode">
         <input
           type="text"
@@ -66,6 +68,7 @@ import {
 import { IsEmail, isPwd, encryptByDES } from "@/libs/util";
 export default {
   name: "bindAccount",
+  props: ['type'],
   components: {
     [Icon.name]: Icon,
     [IndexBar.name]: IndexBar,
@@ -75,7 +78,7 @@ export default {
   },
   data() {
     return {
-      type: "",
+      // type: "",
       Phone: "",
       Email: "",
       showSelPhoneAre: false, //区号选择
@@ -86,7 +89,7 @@ export default {
       isGetCode: true,
       btnTips: "",
       MINT_auth: {},
-      redirect:''
+      redirect: "",
     };
   },
   mounted() {
@@ -95,11 +98,20 @@ export default {
     this.MINT_auth = JSON.parse(MINT_auth);
     console.log(this.MINT_auth);
     this.btnTips = this.$t("forgetPwd.btnGetCode");
-    this.type = this.$route.query.type;
-    this.redirect = this.$route.query.redirect?this.$route.query.redirect:"/safety";
+    this.type = this.type;
+    this.redirect = this.$route.query.redirect
+      ? this.$route.query.redirect
+      : "/safety";
     if (this.type == "mobile") {
       this.selPhoneAre();
     }
+  },
+  watch: {
+    type(val) {
+      if (val == "mobile" && this.phoneAreList.length == 0) {
+        this.selPhoneAre();
+      }
+    },
   },
   methods: {
     // 清除
@@ -209,7 +221,7 @@ export default {
             path: "/success",
             query: {
               type: "bind",
-              redirect:this.redirect
+              redirect: this.redirect,
             },
           });
           // console.log(r.Data)
@@ -240,128 +252,129 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-  .bind_acc_wrap {
-    .content {
-      padding: 0 48px;
-      // width: 80%;
-      margin: 50px auto 0;
-      label {
-        color: @font_color;
-        font-size: 28px;
-      }
-      .item {
-        margin: 30px 0;
-        height: 112px;
-        line-height: 112px;
-        position: relative;
-        //   background: url(../assets/images/common/inpup_bg.png) no-repeat;
-        background-size: contain;
-        background: @input-background-color;
-        border-radius: 16px;
-        color: @font_color;
-        b {
-          height: 112px;
-          width: 70px;
-          display: block;
-          position: absolute;
-          right: 0;
-          top: 0;
-          background: url(../assets/images/common/ic_edit_delete.png) no-repeat
-          center;
-          background-size: 40px 40px;
-        }
-        input {
-          width: 100%;
-          height: 70px;
-          padding-left: 30px;
-          font-size: 26px;
-          background: transparent;
-          // &::-ms-input-placeholder {
-          //   /* Internet Explorer 10-11 */
-          //   .cf;
-          // }
-          // &::-webkit-input-placeholder {
-          //   .cf;
-          // }
-          // &::-moz-placeholder {
-          //   /* Mozilla Firefox 19+ */
-          //   .cf;
-          // }
-          // &::-moz-placeholder {
-          //   /* Mozilla Firefox 4 to 18 */
-          //   .cf;
-          // }
-        }
-        &.email {
-          input {
-            background: url(../assets/images/common/ic_user.png) no-repeat;
-            background-size: 30px;
-          }
-        }
-        &.phone {
-          display: flex;
-          align-items: center;
-          span {
-            position: relative;
-            width: 130px;
-            text-align: center;
-            margin-right: 10px;
-            color: @font_2_color;
-            font-size: 29px;
-            &::before {
-              content: "";
-              width: 20px;
-              height: 15px;
-              background: url(../assets/images/common/drop1.png) no-repeat;
-              background-size: contain;
-              // border-left: 10px solid transparent;
-              // border-right: 10px solid transparent;
-              // border-top: 10px solid #fff;
-              position: absolute;
-              top: 0;
-              right: 0;
-              bottom: 0;
-              margin: auto;
-            }
-          }
-        }
-        &.vcode {
-          input {
-            // background: url(../assets/images/common/ic_yzm.png) no-repeat  left center ;
-            background-size: 30px;
-            width: 100%;
-            // white-space: nowrap;
-            // overflow : hidden;
-            // text-overflow: ellipsis;
-            // display: -webkit-box;
-            // -webkit-line-clamp: 1;
-            // -webkit-box-orient: vertical;
-          }
-          .vcode_bnt {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            //   border: 1px solid @main_color;
-            transform: translate(0, -50%);
-            background: @main_color;
-            color: @font_3_color;
-            font-size: 26px;
-            // padding: 5px 10px;
-            height: 50%;
-            width: 160px;
-            border-radius: 12px;
-            &:disabled {
-              color: @minor-font-color;
-              // border: 1px solid @minor-font-color;
-            }
-          }
-        }
-      }
+.bind_acc_wrap {
+  .content {
+    padding: 0 40px;
+    // width: 80%;
+    margin: 30px auto 0;
+    label {
+      color: @font_color;
+      font-size: 22px;
     }
-    .btns {
-      margin-top: 100px;
-      padding: 0 48px;
-      text-align: center;
+    .item {
+      margin: 30px 0;
+      height: 72px;
+      line-height: 72px;
+      position: relative;
+      //   background: url(../assets/images/common/inpup_bg.png) no-repeat;
+      background-size: contain;
+      background: @input-background-color;
+      border-radius: 16px;
+      color: @font_color;
+      b {
+        height: 112px;
+        width: 70px;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: url(../assets/images/common/ic_edit_delete.png) no-repeat
+          center;
+        background-size: 40px 40px;
+      }
+      input {
+        width: 100%;
+        height: 50px;
+        padding-left: 30px;
+        font-size: 18px;
+        background: transparent;
+        // &::-ms-input-placeholder {
+        //   /* Internet Explorer 10-11 */
+        //   .cf;
+        // }
+        // &::-webkit-input-placeholder {
+        //   .cf;
+        // }
+        // &::-moz-placeholder {
+        //   /* Mozilla Firefox 19+ */
+        //   .cf;
+        // }
+        // &::-moz-placeholder {
+        //   /* Mozilla Firefox 4 to 18 */
+        //   .cf;
+        // }
+      }
+      &.email {
+        input {
+          background: url(../assets/images/common/ic_user.png) no-repeat;
+          background-size: 30px;
+        }
+      }
+      &.phone {
+        display: flex;
+        align-items: center;
+        span {
+          position: relative;
+          width: 130px;
+          text-align: center;
+          margin-right: 10px;
+          color: @font_2_color;
+          font-size: 20px;
+          &::before {
+            content: "";
+            width: 20px;
+            height: 15px;
+            background: url(../assets/images/common/drop1.png) no-repeat;
+            background-size: contain;
+            // border-left: 10px solid transparent;
+            // border-right: 10px solid transparent;
+            // border-top: 10px solid #fff;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+          }
+        }
+      }
+      &.vcode {
+        input {
+          // background: url(../assets/images/common/ic_yzm.png) no-repeat  left center ;
+          background-size: 30px;
+          width: 100%;
+          // white-space: nowrap;
+          // overflow : hidden;
+          // text-overflow: ellipsis;
+          // display: -webkit-box;
+          // -webkit-line-clamp: 1;
+          // -webkit-box-orient: vertical;
+        }
+        .vcode_bnt {
+          position: absolute;
+          top: 50%;
+          right: 10px;
+          //   border: 1px solid @main_color;
+          transform: translate(0, -50%);
+          background: @main_color;
+          color: @font_3_color;
+          font-size: 18px;
+          // padding: 5px 10px;
+          height: 50%;
+          width: 160px;
+          border-radius: 12px;
+          &:disabled {
+            color: @minor-font-color;
+            // border: 1px solid @minor-font-color;
+          }
+        }
+      }
     }
   }
+  .btns {
+    // width: 60%;
+    margin: 50px 0;
+    padding: 0 48px;
+    text-align: center;
+  }
+}
 </style>

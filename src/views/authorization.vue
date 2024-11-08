@@ -1,11 +1,11 @@
 <template>
   <div class="setLan_wrap">
-    <van-nav-bar
+    <!-- <van-nav-bar
       :title="$t('safety.codeAuth')"
       left-text
       left-arrow
       @click-left="$router.go(-1)"
-    />
+    /> -->
     <div class="cont">
       <ul>
         <li
@@ -41,18 +41,18 @@ export default {
       selIndex: -1,
       dataList: [
         {
-          label:  this.$t('login.navPhone'),
-          subLabel: this.$t('authorization.phoneTips'),
+          label: this.$t("login.navPhone"),
+          subLabel: this.$t("authorization.phoneTips"),
           val: "Mobile",
         },
         {
-          label: this.$t('login.navEmail'),
-          subLabel:this.$t('authorization.emailTips'),
+          label: this.$t("login.navEmail"),
+          subLabel: this.$t("authorization.emailTips"),
           val: "Email",
         },
       ],
       MINT_auth: { VerifCodeAccount: "" },
-      defaultIndex:''
+      defaultIndex: "",
     };
   },
   mounted() {
@@ -62,14 +62,14 @@ export default {
     console.log(this.MINT_auth);
     this.selIndex = this.MINT_auth.VerifCodeAccount == "Mobile" ? 0 : 1;
     this.defaultIndex = this.MINT_auth.VerifCodeAccount == "Mobile" ? 0 : 1;
-    
+
     // document.body.style.background = "#f5f5f5";
   },
   methods: {
     SaveAuth() {
-        if(this.defaultIndex == this.selIndex){
-            return
-        }
+      if (this.defaultIndex == this.selIndex) {
+        return;
+      }
       let data = {
         UserId: this.MINT_auth.UserId, //用户编号</br>?
         Action: "ChangeVerifCodeAccount", //修改信息:<br/>
@@ -79,7 +79,7 @@ export default {
       UpdateUserEntity(data).then((r) => {
         console.log(r);
         if (r.data.Code == 200) {
-            this.getEntityUser()
+          this.getEntityUser();
           this.$toast({
             message: r.data.Message,
           });
@@ -116,62 +116,62 @@ export default {
 }
 </style>
 <style lang="less" scoped>
-                   .setLan_wrap {
-                     background-color: @background-color;
-                     height: 100vh;
-                     .cont {
-                       margin-top: 30px;
-                       padding: 0 30px;
-                       li {
-                         margin-bottom: 20px;
-                         border-radius: 24px;
-                         .bot_br;
-                         padding: 10px 40px;
-                         // line-height: 80px;
-                         background: url(../assets/images/common/ic_langue_unselected.png)
-                         no-repeat;
-                         background-color: @panel_color;
-                         background-position: 95% center;
-                         background-size: 50px 50px;
-                         p {
-                           padding: 10px 0;
-                           margin: 0;
-                           &:nth-of-type(1) {
-                             font-size: 28px;
-                             color: @font_1_color;
-                             font-weight: 400;
-                           }
-                           &:nth-of-type(2) {
-                             font-size: 24px;
-                             color: @font_f_color;
-                             font-weight: 400;
-                           }
-                         }
-                         &.active {
-                           background: url(../assets/images/common/ic_langue_selected.png)
-                           no-repeat;
-                           background-color: @panel_color;
-                           background-position: 95% center;
-                           background-size: 50px 50px;
-                         }
-                       }
-                     }
-                     .btns {
-                       width: 100%;
-                       margin: 50px auto;
-                     }
-                     .bot {
-                       width: 80%;
-                       margin: 80px auto;
-                       .main_btn {
-                         height: 90px;
-                         font-size: 28px;
-                       }
-                       .nav {
-                         margin: 20px 0;
-                         justify-content: space-between;
-                         display: flex;
-                       }
-                     }
-                   }
+.setLan_wrap {
+  // background-color: @background-color;
+  // height: 100vh;
+  .cont {
+    margin-top: 30px;
+    padding: 0 30px;
+    li {
+      margin-bottom: 20px;
+      border-radius: 24px;
+      .bot_br;
+      padding: 10px 40px;
+      // line-height: 80px;
+      background: url(../assets/images/common/ic_langue_unselected.png)
+        no-repeat;
+      background-color: @panel_color;
+      background-position: 95% center;
+      background-size: 50px 50px;
+      p {
+        padding: 10px 0;
+        margin: 0;
+        &:nth-of-type(1) {
+          font-size: 20x;
+          color: @font_1_color;
+          font-weight: 400;
+        }
+        &:nth-of-type(2) {
+          font-size: 24px;
+          color: @font_f_color;
+          font-weight: 400;
+        }
+      }
+      &.active {
+        background: url(../assets/images/common/ic_langue_selected.png)
+          no-repeat;
+        background-color: @panel_color;
+        background-position: 95% center;
+        background-size: 50px 50px;
+      }
+    }
+  }
+  .btns {
+    width: 100%;
+    margin: 50px auto;
+  }
+  .bot {
+    width: 80%;
+    margin: 80px auto;
+    .main_btn {
+      height: 90px;
+      font-size: 28px;
+    }
+    .nav {
+      margin: 20px 0;
+      justify-content: space-between;
+      display: flex;
+    }
+  }
+}
 </style>

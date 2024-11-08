@@ -52,6 +52,15 @@ module.exports = {
         "paper": "White paper",
         "Website": "OfficialWebsite",
         "Intr": "Introduction",
+        // new 
+        "joinNum": "MORE THAN 7.5 MILLION USERS HAVE JIONEDSST",
+        "explore": "Welcome to explore new experience",
+        "try": "go to try",
+        "description1": "IS A CRYPTOCURRENCY EXCHANGE FOR EVERYONE",
+        "investment": "INVES TMENT EARES RETURNS",
+        "description2": " Simple and safe. Search popular investments and earn income immediately ",
+        "reliable": "YOUR RELIABLE PARTNER",
+        "safety": "Safety first, in order to protect your assets and information security, we will continue to improve. ",
     },
     Coin:{
         Selectcurrency :'Select legal currency',
@@ -175,6 +184,7 @@ module.exports = {
         'price': 'Price',
         'cancel': 'Cancel order',
         'quantityErr': 'Please enter the quantity',
+        'record': 'History commission',
 
     },
     history: {

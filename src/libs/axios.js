@@ -64,8 +64,8 @@ const errorHandle = (res, other) => {
             // Toast('请求的资源不存在');
             break;
         default:
-            console.log(res)
-            console.log(other);
+            // console.log(res)
+            // console.log(other);
             Toast(other.Message);
     }
 }
@@ -153,7 +153,7 @@ class HttpRequest {
                 }
             }
             addErrorLog(errorInfo)
-            console.log(i18n.messages)
+            // console.log(i18n.messages)
             let lang = localStorage.getItem('MINT_lang') ? localStorage.getItem('MINT_lang') : 'zh-CN'
                 // Toast(i18n.messages[lang].base.err)
             return Promise.reject(error)
@@ -162,14 +162,14 @@ class HttpRequest {
     request(options) {
         const { data, url } = options;
         let LanguageVersion = localStorage.getItem('MINT_lang') ? localStorage.getItem('MINT_lang') : 'zh-CN';
-        console.log('LanguageVersion>>>>>', LanguageVersion)
+        // console.log('LanguageVersion>>>>>', LanguageVersion)
         let isLogin = !!localStorage.getItem('MINT_auth')
         let isApp = !!localStorage.getItem('isApp')
         let hideService = !!localStorage.getItem('hideService')
         let MINT_auth = localStorage.getItem("MINT_auth");
         MINT_auth = MINT_auth ? decryptByDES(MINT_auth) : "";
         MINT_auth = MINT_auth ? JSON.parse(MINT_auth) : "";
-        console.log(MINT_auth)
+        // console.log(MINT_auth)
         if(isApp||hideService){
             isLogin = false
         }
@@ -179,7 +179,7 @@ class HttpRequest {
             store.dispatch('setUserInfo', MINT_auth);
         }
         data.LanguageVersion = LanguageVersion;
-        console.log('>>>>>>>>>', data);
+        // console.log('>>>>>>>>>', data);
         let params = `InJson=${ encodeURIComponent(encryptByDES(JSON.stringify(data)))}`;
         options.data = params;
         options.url = '/Index.asmx' + url;

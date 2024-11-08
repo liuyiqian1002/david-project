@@ -1,168 +1,149 @@
 <template>
   <div class="property_wrap">
-    <div class="top">
-      <div class="header-content">
-        <header>
-          <span>{{ $t("property.title") }}</span>
-          <img
-            @click="showMeMenu = true"
-            src="../assets/images/common/me_user@2x.png"
-            alt=""
-          />
-          <!-- <span @click="$router.push('/mine')">{{$t('property.rightTitle')}}</span> -->
-        </header>
-      </div>
-      <div class="acc_info">
-        <p>{{ Total | decimals(8) }}</p>
-        <p>≈{{ CNYTotal | decimals(2) }} USD</p>
-        <p>{{ $t("property.total") }}(USDT)</p>
-      </div>
-      <div class="search">
-        <ul>
-          <li>
-            <div class="" @click="petty">
-              <div :class="['checkbox', { checked: isPetty }]"></div>
-              <p>{{ $t("loginPwd.smallCurrency") }}</p>
+    <sheader></sheader>
+
+    <div class="content-wrapper">
+      <div class="nav-list">
+        <div class="me_menu">
+          <div class="content">
+            <div
+              class="cell"
+              :class="{ active: activeIndex == 0 }"
+              @click="$router.push('/property') && (activeIndex = 0)"
+            >
+              <div class="cion">
+                <img src="../assets/pc/路径 6@3x.png" alt="" />
+              </div>
+              <div>
+                <span>{{ $t("mine.personalInfo") }}</span>
+              </div>
             </div>
-          </li>
-          <li>
+            <!-- news -->
+            <div class="cell" :class="{ active: activeIndex == 7 }" @click="activeIndex = 7">
+              <div class="pic">
+                <img src="../assets/pc/路径 14@3x.png" alt="" />
+              </div>
+              <div>
+                <p>{{ $t("mine.news") }}</p>
+              </div>
+            </div>
+            <!-- transaction -->
+            <div class="cell" :class="{ active: activeIndex == 6 }" @click="activeIndex = 6">
+              <div class="cion">
+                <img src="../assets/pc/组 4@3x.png" alt="" />
+              </div>
+              <div>
+                <span>{{ $t("mine.pay") }}</span>
+              </div>
+            </div>
+            <!-- recharge -->
+            <div class="cell" :class="{ active: activeIndex == 4 }" @click="activeIndex = 4">
+              <div class="cion">
+                <img src="../assets/images/common/cjwt.png" alt="" />
+              </div>
+              <div>
+                <span>{{ $t("property.recharge") }}</span>
+              </div>
+            </div>
+            <!-- withdrawal -->
+            <div class="cell" :class="{ active: activeIndex == 5 }" @click="activeIndex = 5">
+              <div class="cion">
+                <img src="../assets/images/common/cjwt.png" alt="" />
+              </div>
+              <div>
+                <span>{{ $t("property.withdraw") }}</span>
+              </div>
+            </div>
+
+            <!-- $router.push('/recommend_friend') &&  -->
+            <div class="cell" :class="{ active: activeIndex == 1 }" @click="activeIndex = 1">
+              <div class="cion">
+                <img src="../assets/images/common/swhz.png" alt="" />
+              </div>
+              <div>
+                <span>{{ $t("mine.inviteFriends") }}</span>
+              </div>
+            </div>
+            <!-- $router.push('/safety') -->
+            <div class="cell" :class="{ active: activeIndex == 2 }" @click="activeIndex = 2">
+              <div class="cion">
+                <img src="../assets/images/common/ic_anquan.png" alt="" />
+              </div>
+              <div>
+                <span>{{ $t("mine.securityCenter") }}</span>
+              </div>
+            </div>
+            <!-- 吧 -->
+            <div class="cell" :class="{ active: activeIndex == 3 }" @click="toService">
+              <div class="cion">
+                <img src="../assets/images/common/gywm.png" alt="" />
+              </div>
+              <div>
+                <span>{{ $t("mine.help") }}</span>
+              </div>
+            </div>
+
+            <div class="cell" :class="{ active: activeIndex == 8 }" @click="outSign">
+              <div class="cion">
+                <img src="../assets/images/common/out_login.png" alt="" />
+              </div>
+              <div>
+                <span>{{ $t("mine.out") }}</span>
+                <!-- <img src="../assets/images/common/back_right.png" alt="" /> -->
+              </div>
+            </div>
+          </div>
+          <!-- <div class="my_code" @click="toQrCode">
             <div>
-              <input
-                v-model="KeyWord"
-                @keydown.enter="search"
-                @blur="getUserCommodityAccountsInfo"
-                type="text"
-                :placeholder="$t('property.seach')"
-              />
+              <div class="pic">
+                <img src="../assets/images/common/me_code.png" alt="" />
+              </div>
+              <p>{{ $t("mine.QrCode") }}</p>
             </div>
-          </li>
-        </ul>
+          </div> -->
+        </div>
+      </div>
+      <div class="content-box">
+        <div v-if="activeIndex == 0">
+          <userInfo></userInfo>
+        </div>
+        <div v-else-if="activeIndex == 1">
+          <recommendFriend></recommendFriend>
+        </div>
+        <div v-else-if="activeIndex == 2">
+          <safety></safety>
+        </div>
+        <div v-else-if="activeIndex == 5">
+          <withdrawCoin></withdrawCoin>
+        </div>
+        <div v-else-if="activeIndex == 6">
+          <transaction></transaction>
+        </div>
+        <div v-else-if="activeIndex == 4">
+          <recharge></recharge>
+        </div>
+        <div v-else-if="activeIndex == 3">
+          <H5Center ref="H5HelpCenter"></H5Center>
+        </div>
+        <div v-else-if="activeIndex == 7">
+          <news></news>
+        </div>
       </div>
     </div>
-    <!-- <div class="empty"></div> -->
-    <div class="contnet">
-      <div>
-        <van-empty
-          v-show="isEmpty"
-          :description="$t('base.noData')"
-          class="custom-image"
-          :image="emptyImg"
-        />
-        <div class="card" v-for="i,index in DataList" @click="toRecord(i)" :key="index">
-          <p>{{ i.Coin }}</p>
-          <ul>
-            <li>
-              <p>{{ $t("property.usable") }}</p>
-              <p>{{ i.Balance | decimals(8) }}</p>
-            </li>
-            <li>
-              <p>{{ $t("property.Freeze") }}</p>
-              <p>{{ i.Freeze | decimals(8) }}</p>
-            </li>
-            <li>
-              <p>{{ $t("property.CNYBalance") }}(USD)</p>
-              <p>{{ i.CNYBalance | decimals(2) }}</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <mainFooter />
-    <van-popup
-      v-model="showMeMenu"
-      position="left"
-      :style="{ height: '100%', width: '80%' }"
-    >
-      <div class="me_menu">
-
-        <div class="avatar">
-          <div class="pic" @click="$router.push('/user_info')">
-            <img :src="avatar" alt="" />
-          </div>
-          <div>
-            <p>
-              {{ UserInfo.EnCode }}
-              <span class="tag">V{{ UserInfo.UserGrade + 1 }}</span>
-            </p>
-            <p>UID: {{ UserInfo.EnCode }}</p>
-          </div>
-        </div>
-        <div class="content">
-          <div class="cell" @click="pay">
-            <div class="cion">
-              <img src="../assets/images/common/cjwt.png" alt="" />
-            </div>
-            <div>
-              <span>{{ $t("mine.pay") }}</span>
-              <!-- <img src="../assets/images/common/back_right.png" alt="" /> -->
-            </div>
-          </div>
-          <div class="cell" @click="$router.push('/recommend_friend')">
-            <div class="cion">
-              <img src="../assets/images/common/swhz.png" alt="" />
-            </div>
-            <div>
-              <span>{{ $t("mine.inviteFriends") }}</span>
-              <!-- <img src="../assets/images/common/back_right.png" alt="" /> -->
-            </div>
-          </div>
-          <div class="cell" @click="$router.push('/safety')">
-            <div class="cion">
-              <img src="../assets/images/common/ic_anquan.png" alt="" />
-            </div>
-            <div>
-              <span>{{ $t("mine.securityCenter") }}</span>
-              <!-- <img src="../assets/images/common/back_right.png" alt="" /> -->
-            </div>
-          </div>
-          <div
-            class="cell"
-            @click="(showMeMenu = false), $router.push('/set_lan')"
-          >
-            <div class="cion">
-              <img src="../assets/images/common/jcgx.png" alt="" />
-            </div>
-            <div>
-              <span>{{ $t("mine.language") }}</span>
-              <!-- <img src="../assets/images/common/back_right.png" alt="" /> -->
-            </div>
-          </div>
-          <div class="cell" @click="toSevice">
-            <div class="cion">
-              <img src="../assets/images/common/gywm.png" alt="" />
-            </div>
-            <div>
-              <span>{{ $t("mine.help") }}</span>
-              <!-- <img src="../assets/images/common/back_right.png" alt="" /> -->
-            </div>
-          </div>
-
-          <div class="cell" @click="outSign">
-            <div class="cion">
-              <img src="../assets/images/common/out_login.png" alt="" />
-            </div>
-            <div>
-              <span>{{ $t("mine.out") }}</span>
-              <!-- <img src="../assets/images/common/back_right.png" alt="" /> -->
-            </div>
-          </div>
-        </div>
-        <div class="my_code" @click="toQrCode">
-          <div>
-            <div class="pic">
-              <img src="../assets/images/common/me_code.png" alt="" />
-            </div>
-            <p>{{ $t("mine.QrCode") }}</p>
-          </div>
-        </div>
-      </div>
-    </van-popup>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
-import mainFooter from "@/components/mainFooter";
+// import mainFooter from "@/components/mainFooter";
+import userInfo from "@/views/user/userInfo";
+import safety from "@/views/safety";
+import H5Center from "@/components/H5";
+import recommendFriend from "@/views/recommendFriend";
+import recharge from "./recharge.vue";
+import withdrawCoin from "./withdrawCoin.vue";
+import transaction from "./transaction.vue";
+import news from "./News.vue";
 import { GetUserCommodityAccountsInfo, GetEntityUser, SignOut } from "@/api";
 import {
   Icon,
@@ -195,7 +176,15 @@ export default {
     [List.name]: List,
     [Dialog.name]: Dialog,
     [CountDown.name]: CountDown,
-    mainFooter,
+    // mainFooter,
+    userInfo,
+    safety,
+    recommendFriend,
+    H5Center,
+    recharge,
+    withdrawCoin,
+    transaction,
+    news,
   },
   data() {
     return {
@@ -211,11 +200,18 @@ export default {
       avatar: "",
       UserInfo: {},
       loading: false,
+      activeIndex: 0,
+      helpCenterUrl: "",
     };
   },
+
   mounted() {
     this.emptyImg = require("../assets/images/common/empty_img.png");
     console.log(this.$route.query);
+    const { index } = this.$route.query;
+    if (index !== undefined) {
+      this.activeIndex = index;
+    }
     let MINT_auth = localStorage.getItem("MINT_auth");
     MINT_auth = this.$decryptByDES(MINT_auth);
     this.MINT_auth = JSON.parse(MINT_auth);
@@ -361,31 +357,45 @@ export default {
         },
       });
     },
-    toSevice() {
-      this.showMeMenu = false;
+    toService() {
+      // this.showMeMenu = false;
       let lang = localStorage.getItem("MINT_lang")
         ? localStorage.getItem("MINT_lang")
         : "zh-CN";
       let href =
         this.$config.imgPath +
         `/News/AppReplicate/c8ebc9cc-8d27-46a5-a57e-c54d1287c4d4?LanguageVersion=${lang}`;
-      this.$router.push({
-        path: "/h5",
-        query: {
-          url: href,
-          title: this.$t("mine.help"),
-        },
+      this.helpCenterUrl = href;
+      this.activeIndex = 3;
+      console.log(this.$refs.H5HelpCenter, "this.$refs.H5HelpCenter");
+      // this.$refs.H5HelpCenter.setIframeUrl(href);
+      setTimeout(() => {
+        this.$refs.H5HelpCenter.setIframeUrl(href);
       });
+      // this.$router.push({
+      //   path: "/h5",
+      //   query: {
+      //     url: href,
+      //     title: this.$t("mine.help"),
+      //   },
+      // });
     },
   },
   computed: {
     ...mapState(["base"]),
   },
+  watch: {
+    $route(to, from) {
+      // console.log(to, from, this.$route.query);
+      const { index } = this.$route.query;
+      this.activeIndex = index || 0;
+    },
+  },
 };
 </script>
 <style lang="less" >
 .property_wrap {
-  background-color: @background-color;
+  // background-color: @background-color;
   color: @font_1_color;
 
   .custom-image .van-empty__image {
@@ -397,188 +407,42 @@ export default {
 </style>
 <style lang="less" scoped>
 .property_wrap {
-  .top {
-    background-color: @background-color;
-    //    background-color: @main_color;
-    //    color: #fff;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-    .header-content {
-      position: fixed;
-      left: 0;
-      top: 0;
-      z-index: 11;
-      width: 100vw;
-      header {
-        display: flex;
-        width: 100%;
-        height: 80px;
-        align-items: center;
-        justify-content: center;
-        // background: transparent;
-        span {
-          color: @font_3_color;
-          font-size: 30px;
+  .content-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    .nav-list {
+      //
+      width: 300px;
+      .content {
+        width: 300px;
+        margin-top: 30px;
+        padding-left: 60px;
+        .cell {
+          display: flex;
+          align-items: center;
+          height: 68px;
+          font-size: 24px;
           font-weight: 500;
+          color: #989898;
+          cursor: pointer;
+          img {
+            width: 30px;
+            height: 30px;
+            margin-right: 20px;
+          }
         }
-        span {
-          position: absolute;
-          left: 40px;
-          font-size: 28px;
-          font-weight: 500;
-        }
-        img {
-          position: absolute;
-          right: 40px;
-          font-size: 28px;
-          width: 56px;
-          height: 56px;
-
-          font-weight: 500;
+        .active{
+          color: @main_color;
         }
       }
     }
-    .acc_info {
-      background: url(../assets/images/common/property_top_bg@2x.png) no-repeat;
-      padding: 110px 40px 50px 40px;
-      height: 440px;
-      // margin: 20px 20px;
-      background-size: cover;
-      position: relative;
-      p {
-        color: #fff;
-        padding: 5px 0;
-        font-size: 26;
-        &:nth-of-type(1) {
-          font-size: 60px;
-          font-weight: bold;
-        }
-        &:nth-of-type(2) {
-          font-weight: 500;
-          font-size: 28px;
-        }
-        &:nth-of-type(3) {
-          color: @font_3_color;
-          position: absolute;
-          bottom: 40px;
-          font-weight: 500;
-          font-size: 28px;
-        }
-      }
-    }
-    .search {
-      margin: 20px 30px;
-      border-radius: 40px;
-      background: @panel_color;
-      // margin-bottom: 30px;
-      // padding: 20px;
-      // box-shadow: 0px -2px 2px 2px #eee,
-      //   /*上边阴影  红色*/ -2px 0px 2px 2px #eee,
-      //   /*左边阴影  绿色*/ 2px 0px 2px 2px #eee,
-      //   /*右边阴影  蓝色*/ 0px 2px 2px 2px #eee;
-      ul {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 20px;
-        li {
-          > div {
-            height: 90px;
-            display: flex;
-            align-items: center;
-            color: @font_color;
-            input {
-              width: 164px;
-              height: 44px;
-              border: 1px solid @main_color; // #e5e5e5
-              border-radius: 10px;
-              padding-left: 40px;
-              background: @btn_main_color;
-              color: @font_3_color;
-              // background-size: 30px 30px;
-            }
-            .checkbox {
-              margin-right: 10px;
-              width: 30px;
-              height: 30px;
-              background: url(../assets/images/common/uncheck.png) no-repeat;
-              background-size: cover;
-              &.checked {
-                background: url(../assets/images/common/checked.png) no-repeat;
-                background-size: cover;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  .empty {
-    background-color: @main_color;
-    width: 100%;
-    height: 80px;
-    position: fixed;
-    top: 230px;
-  }
-  .contnet {
-    background-color: @background-color;
-    > div {
-      padding-bottom: 520px;
-      margin: 30px;
-    }
-    position: fixed;
-    overflow: auto;
-    width: 100%;
-    height: 100%;
-    top: 560px;
-    z-index: 1;
-    padding-bottom: 120px;
-    .card {
-      border-radius: 10px;
-      background-color: @panel_color;
-      margin-bottom: 30px;
-      padding: 20px;
-      p {
-        font-weight: 500;
-        margin-bottom: 10px;
-        font-size: 32px;
-      }
-      ul {
-        display: flex;
-        li {
-          width: 33.33%;
-          p {
-            font-size: 26px;
-            &:nth-of-type(1) {
-              color: @minor-font-color;
-              white-space: nowrap;
-            }
-          }
-          &:nth-of-type(1) {
-            p{
-              &:nth-of-type(2) {
-                color: @font_3_color;
-              }
-            }
-          }
-          &:nth-of-type(2) {
-            text-align: center;
-            justify-content: center;
-            color: @font_3_color;
-          }
-          &:nth-of-type(3) {
-            text-align: right;
-            justify-content: center;
-            color:@btn_main_color !important;
-          }
-        }
-      }
+    .content-box {
+      width: 1000px;
     }
   }
   .me_menu {
-    padding: 20px;
+    // padding: 20px;
     height: 100%;
     position: relative;
     // display: flex;
@@ -593,8 +457,8 @@ export default {
         // width: 100px;
         text-align: center;
         .pic {
-          width: 120px;
-          height: 120px;
+          width: 180px;
+          height: 80px;
           text-align: center;
           margin: 0 auto;
           img {
@@ -610,7 +474,7 @@ export default {
       display: flex;
       align-items: center;
       flex-direction: column;
-      padding: 50px 0;
+      padding: 20px 0;
       border-bottom: 1px solid #555;
       .pic {
         width: 120px;
@@ -620,7 +484,7 @@ export default {
         img {
           width: 100%;
           height: 100%;
-          transform: scale(.8);
+          transform: scale(0.8);
         }
         margin-right: 10px;
         & + div {
@@ -641,23 +505,6 @@ export default {
               }
             }
           }
-        }
-      }
-    }
-    .content {
-      margin-top: 30px;
-      padding-left: 60px;
-      .cell {
-        display: flex;
-        align-items: center;
-        height: 120px;
-        font-size: 34px;
-        font-weight: 500;
-        color: #989898;
-        img {
-          width: 35px;
-          height: 35px;
-          margin-right: 20px;
         }
       }
     }

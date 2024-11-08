@@ -8,7 +8,8 @@ export default {
         coinInfo: {},
         userCoinAddress: {},
         isLogin: false,
-        lang: ''
+        lang: '',
+        activeIndex: 1
     },
     mutations: {
         setUserInfo(state, data) {
@@ -39,6 +40,9 @@ export default {
         },
         setPath(state, data) {
             state.fromPath = data;
+        },
+        setActiveIndex(state, data) {
+            state.activeIndex = data;
         },
 
     },

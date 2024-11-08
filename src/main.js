@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import 'lib-flexible/flexible'
+// import 'lib-flexible/flexible'
 import config from '@/config'
 import '@/assets/icons/iconfont.css'
 import 'swiper/css/swiper.css';
@@ -12,6 +12,10 @@ import axios from 'axios'
 import { decryptByDES } from "@/libs/util.js";
 // import FastClick from 'fastclick'
 import * as filters from '@/filters';
+import sheader from '@/components/sheader';
+import navHeader from '@/components/navHeader';
+import sfooter from '@/components/sfooter';
+import '@vant/touch-emulator'
 //复制到粘贴板插件
 Object.keys(filters).forEach((key) => {
     Vue.filter(key, filters[key]);
@@ -29,6 +33,9 @@ import {
 // });
 Vue.use(Toast);
 Vue.use(Dialog);
+Vue.component('navHeader', navHeader);
+Vue.component('sheader', sheader);
+Vue.component('sfooter', sfooter);
 import waterfall from 'vue-waterfall2'
 Vue.use(waterfall)
 import VueClipboard from 'vue-clipboard2'
