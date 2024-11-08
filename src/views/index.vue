@@ -116,7 +116,9 @@
             >
               <div class="content">
                 <div class="icon"><img :src="vCoins.ico" alt="" /></div>
-                <div class="name">{{ `${vCoins.QuoteCurrency} / ${vCoins.BaseCurrency}` }}</div>
+                <div class="name">
+                  {{ `${vCoins.QuoteCurrency} / ${vCoins.BaseCurrency}` }}
+                </div>
                 <div class="num">{{ vCoins.Amount }}</div>
                 <div class="percent">{{ vCoins.GainRate }}</div>
               </div>
@@ -186,7 +188,14 @@
             <div
               :class="[{ down: i.RisingValue < 0 }, { up: i.RisingValue >= 0 }]"
             >
-              <img :src="require(`../assets/pc/${i.RisingValue >= 0 ? '路径 17' : '路径 19159'}.png`)" /><p>{{ gainRate(i) }}%</p>
+              <img
+                :src="
+                  require(`../assets/pc/${
+                    i.RisingValue >= 0 ? '路径 17' : '路径 19159'
+                  }.png`)
+                "
+              />
+              <p>{{ gainRate(i) }}%</p>
             </div>
           </li>
         </ul>
@@ -841,6 +850,10 @@ export default {
           text-align: left;
           line-height: 80px;
           opacity: 1;
+          @media (max-width: 1920px) and (max-height: 1080px) {
+            /* 样式代码 */
+            width: 1100px;
+          }
         }
         .title2 {
           width: 1034px;
@@ -1383,14 +1396,13 @@ export default {
               border-radius: 8px;
               &.up {
                 color: @up-color;
-                
               }
               &.down {
                 color: @down-color;
               }
-              img{
-                  margin-right: 20px;
-                }
+              img {
+                margin-right: 20px;
+              }
             }
             display: flex;
             justify-content: flex-end;

@@ -53,6 +53,7 @@ module.exports = {
         "Website": "Laman web rasmi",
         "Intr": "pengenalan",
         // new 
+        "QuicklyInput": "Sila masukkan nombor telefon bimbit/alamat e-mel anda",
         "joinNum": "LEBIH DARIPADA 7.5 JUTA PENGGUNA MEMPUNYAI JIONEDSST",
         "explore": "Selamat datang untuk meneroka pengalaman baharu",
         "try": "pergi untuk mencuba",

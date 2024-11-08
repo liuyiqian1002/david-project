@@ -53,6 +53,7 @@ module.exports = {
         "Website": "Trang web chính thức",
         "Intr": "Giới thiệu",
         // new 
+        "QuicklyInput": "Vui lòng nhập số điện thoại di động/địa chỉ email của bạn",
         "joinNum": "HƠN 7,5 TRIỆU NGƯỜI DÙNG ĐÃ THAM GIA",
         "explore": "Chào mừng bạn đến khám phá trải nghiệm mới",
         "try": "go to try",

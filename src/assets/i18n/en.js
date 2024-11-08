@@ -53,6 +53,7 @@ module.exports = {
         "Website": "OfficialWebsite",
         "Intr": "Introduction",
         // new 
+        "QuicklyInput": "Please enter your phone number/email",
         "joinNum": "MORE THAN 7.5 MILLION USERS HAVE JIONEDSST",
         "explore": "Welcome to explore new experience",
         "try": "go to try",

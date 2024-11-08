@@ -56,6 +56,7 @@ module.exports = {
     Website: "Website oficial",
     Intr: "Introdução",
     // new
+    QuicklyInput: "Silakan masukkan nomor ponsel/alamat email Anda",
     joinNum: "LEBIH DARI 7,5 JUTA PENGGUNA TELAH MENDAPATKAN JIONEDSST",
     explore: "Selamat datang untuk menjelajahi pengalaman baru",
     try: "coba",

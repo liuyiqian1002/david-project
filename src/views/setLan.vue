@@ -92,6 +92,9 @@ export default {
         //     that.$router.go(-1);
         // }
       });
+      setTimeout(() => {
+        that.$emit("getBars", false);
+      })
     },
   },
 };

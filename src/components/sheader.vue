@@ -55,7 +55,7 @@
           v-if="showLanguage"
           @mouseleave="showLanguage = false"
         >
-          <setLang></setLang>
+          <setLang @getBars="getBars"></setLang>
         </div>
       </div>
     </div>
@@ -83,54 +83,8 @@ export default {
     ...mapState(["base"]),
   },
   mounted() {
-    this.bars = [
-      {
-        barTitle: this.$t("base.home"),
-        icon: {
-          active: require("../assets/images/tab-bar/home_1.png"),
-          inactive: require("../assets/images/tab-bar/home_0.png"),
-        },
-        link: "/",
-        index: 1,
-      },
-      {
-        barTitle: this.$t("base.market"),
-        icon: {
-          active: require("../assets/images/tab-bar/market_1.png"),
-          inactive: require("../assets/images/tab-bar/market_0.png"),
-        },
-        link: "/market",
-        index: 2,
-      },
-      {
-        barTitle: this.$t("base.deal"),
-        icon: {
-          active: require("../assets/images/tab-bar/trade_1.png"),
-          inactive: require("../assets/images/tab-bar/trade_0.png"),
-        },
-        link: "/deal",
-        index: 3,
-      },
-      {
-        barTitle: this.$t("base.contract"),
-        icon: {
-          active: require("../assets/images/tab-bar/futures_1.png"),
-          inactive: require("../assets/images/tab-bar/futures_0.png"),
-        },
-        link: "/futures",
-        index: 4,
-      },
-      {
-        barTitle: this.$t("base.property"),
-        icon: {
-          active: require("../assets/images/tab-bar/assets_1.png"),
-          inactive: require("../assets/images/tab-bar/assets_0.png"),
-        },
-        link: "/property",
-        index: 5,
-      },
-    ];
-    console.log(this.base, "base");
+    this.getBars();
+    console.log(this.bars, "base");
     this.activeIndex = this.base.activeIndex;
     this.lang = localStorage.getItem("MINT_lang");
     let MINT_auth = localStorage.getItem("MINT_auth");
@@ -138,11 +92,55 @@ export default {
     this.MINT_auth = JSON.parse(MINT_auth);
   },
   methods: {
-    // downloadApp() {
-    //   localStorage.setItem("download", Date.now());
-    //   let lang = localStorage.getItem("MINT_lang");
-    //   location.href = `https://download.unltee.com`;
-    // },
+    getBars() {
+      this.bars = [
+        {
+          barTitle: this.$t("base.home"),
+          icon: {
+            active: require("../assets/images/tab-bar/home_1.png"),
+            inactive: require("../assets/images/tab-bar/home_0.png"),
+          },
+          link: "/",
+          index: 1,
+        },
+        {
+          barTitle: this.$t("base.market"),
+          icon: {
+            active: require("../assets/images/tab-bar/market_1.png"),
+            inactive: require("../assets/images/tab-bar/market_0.png"),
+          },
+          link: "/market",
+          index: 2,
+        },
+        {
+          barTitle: this.$t("base.deal"),
+          icon: {
+            active: require("../assets/images/tab-bar/trade_1.png"),
+            inactive: require("../assets/images/tab-bar/trade_0.png"),
+          },
+          link: "/deal",
+          index: 3,
+        },
+        {
+          barTitle: this.$t("base.contract"),
+          icon: {
+            active: require("../assets/images/tab-bar/futures_1.png"),
+            inactive: require("../assets/images/tab-bar/futures_0.png"),
+          },
+          link: "/futures",
+          index: 4,
+        },
+        {
+          barTitle: this.$t("base.property"),
+          icon: {
+            active: require("../assets/images/tab-bar/assets_1.png"),
+            inactive: require("../assets/images/tab-bar/assets_0.png"),
+          },
+          link: "/property",
+          index: 5,
+        },
+      ];
+    },
     onService() {
       let url =
         this.$config.imgPath +
