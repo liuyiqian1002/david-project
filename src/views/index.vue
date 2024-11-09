@@ -1157,6 +1157,9 @@ export default {
       display: flex;
       justify-content: space-around;
       align-items: center;
+      background: url(../assets/pc/蒙版组 14.png) no-repeat;
+      background-size: 100% 100%;
+      padding-bottom: 40px;
       .list-box-wrapper {
         width: 1200px;
         overflow-x: hidden;
@@ -1171,7 +1174,7 @@ export default {
           .list-item {
             width: 300px;
             height: 383px;
-            background: #232425;
+            background: rgba(35, 36, 37, .5);
             border: 1px solid #404040;
             border-radius: 10px;
             opacity: 0.8;
