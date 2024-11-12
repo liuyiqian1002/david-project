@@ -9,6 +9,14 @@
     <title>
         <%= htmlWebpackPlugin.options.title %>
     </title>
+    <script>
+        if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+            // console.log('手机端')
+        }else{
+            // console.log('pc端')
+            window.location.href = "https://www.baidu.com" // PC端网址
+        }
+    </script>
 </head>
 
 <body>
