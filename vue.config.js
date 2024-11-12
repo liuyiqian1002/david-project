@@ -40,7 +40,7 @@ module.exports = {
             .loader('url-loader')
             .tap(options => {
                 // [name].[hash:8].[ext]
-                options.fallback.options.name = 'img/[hash:8].[ext]'
+                options.fallback.options.name = 'img/[hash:12].[ext]'
                 options.fallback.options.limit = 10000
                 options.esModule = false
                 return options
