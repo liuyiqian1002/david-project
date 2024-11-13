@@ -29,6 +29,7 @@
           "CloseDate": '合约剩余时间',
           "safetyTips": '您的信息通过256位SGC加密保护安全传输',
           "browsing": '行情浏览',
+          "downloadSubTitle": '下载我们的应用程序获得更佳体验',
       },
       news: {
           title: '资讯',
@@ -125,6 +126,9 @@
           'outTips': '确定退出',
           'seccess': '退出成功',
           'avatar': '点击更换头像',
+          "back": '返回',
+          "news": '通知',
+          "personalInfo": '个人信息',
       },
       receivingQRCode: {
           'title': '收款码',

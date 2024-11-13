@@ -1,9 +1,10 @@
 <template>
   <div class="index_wrap">
     <!-- <downLoad  @closeDownLoad='closeDownLoad' v-show="showDownLoad"/> -->
-    <sheader></sheader>
     <div class="content">
       <div class="first_wrap">
+        <div class="hd-box"><sheader></sheader></div>
+
         <div class="left">
           <div class="title1">{{ $t("base.joinNum") }}</div>
           <div class="title2">{{ $t("base.explore") }}</div>
@@ -13,7 +14,7 @@
             </div>
             <div class="btn">{{ $t("base.try") }}</div>
           </div>
-          <p class="text-title">{{ $t("base.DownloadApp") }}</p>
+          <p class="text-title">{{ $t("base.downloadSubTitle") }}</p>
           <div class="download-app">
             <div class="google" @click="downloadApp(1)">
               <img src="../assets/pc/组 3@3x.png" alt="" />
@@ -829,6 +830,7 @@ export default {
       background-color: #c72aff;
     }
     .first_wrap {
+      position: relative;
       background: url(../assets/pc/蒙版组 11@3x.png) no-repeat;
       background-size: 100% 100%;
       border-radius: 15px;
@@ -839,6 +841,15 @@ export default {
       @media (max-width: 1920px) and (max-height: 1080px) {
         /* 样式代码 */
         height: 680px;
+      }
+      .hd-box{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // background: url(../assets/pc/蒙版组 11@3x.png) no-repeat;
+        // background-size: 100% 100%;
       }
       .left {
         .title1 {
@@ -1174,7 +1185,7 @@ export default {
           .list-item {
             width: 300px;
             height: 383px;
-            background: rgba(35, 36, 37, .5);
+            background: rgba(35, 36, 37, 0.5);
             border: 1px solid #404040;
             border-radius: 10px;
             opacity: 0.8;
@@ -1436,8 +1447,8 @@ export default {
         background-size: 100% 100%;
         .title {
           margin-top: 150px;
-          max-width: 354px;
-          height: 36px;
+          // max-width: 354px;
+          height: 32px;
           font-family: Source Han Sans CN;
           font-size: 36px;
           color: #fff;

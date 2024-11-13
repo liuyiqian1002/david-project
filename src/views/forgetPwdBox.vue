@@ -72,13 +72,13 @@
         </button>
       </div>
     </div>
-    <div class="tips">
+    <!-- <div class="tips"> -->
       <!-- <p>{{$t('login.hasAcc')}}？ <span class="mc"  @click="$router.push('/register')" >{{$t("login.Registernow")}}</span></p> -->
-      <p class="safety_tips">
+      <!-- <p class="safety_tips">
         <img src="../assets/images/common/safety_tips.png" alt="" />
         {{ $t("base.safetyTips") }}
-      </p>
-    </div>
+      </p> -->
+    <!-- </div> -->
     <van-popup v-model="showSelPhoneAre" position="bottom" round>
       <van-picker
         show-toolbar

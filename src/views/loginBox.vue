@@ -85,21 +85,31 @@
           </button>
         </div>
         <div class="nav">
-          <span @click="$router.push('/set_lan')">{{
-            $t("login.changeLan")
-          }}</span>
+          <div class="lang-box">
+            <span @click="showLanguage = true">{{
+              $t("login.changeLan")
+            }}</span>
+            <div
+              class="language-box"
+              v-if="showLanguage"
+              @mouseleave="showLanguage = false"
+            >
+              <setLang @getBars="getBars"></setLang>
+            </div>
+          </div>
+
           <span @click="$router.push('/forget_pwd')">{{
             $t("login.forgetPwd")
           }}</span>
         </div>
       </div>
-      <div class="tips">
-        <!-- <p>{{$t('login.hasAcc')}}？ <span class="mc"  @click="$router.push('/register')" >{{$t("login.Registernow")}}</span></p> -->
-        <p class="safety_tips">
+      <!-- <div class="tips"> -->
+      <!-- <p>{{$t('login.hasAcc')}}？ <span class="mc"  @click="$router.push('/register')" >{{$t("login.Registernow")}}</span></p> -->
+      <!-- <p class="safety_tips">
           <img src="../assets/images/common/safety_tips.png" alt="" />
           {{ $t("base.safetyTips") }}
-        </p>
-      </div>
+        </p> -->
+      <!-- </div> -->
       <van-popup v-model="showSelPhoneAre" position="bottom" round>
         <van-picker
           show-toolbar
@@ -132,6 +142,7 @@ import {
 } from "vant";
 import { Login, GetEntityUser, GetMobileAreaCodeList } from "@/api";
 import { IsEmail, isPwd, encryptByDES } from "@/libs/util";
+import setLang from "@/views/setLan";
 export default {
   name: "login",
   components: {
@@ -150,6 +161,7 @@ export default {
     [Field.name]: Field,
     [Picker.name]: Picker,
     [Popup.name]: Popup,
+    setLang,
   },
   data() {
     return {
@@ -162,6 +174,7 @@ export default {
       showSelPhoneAre: false, //区号选择
       phoneAreList: [], //区号
       PhoneAre: "1",
+      showLanguage: false,
     };
   },
   mounted() {
@@ -312,6 +325,7 @@ export default {
     }
     > .nav {
       // width: 80%;
+      position: relative;
       margin: 60px auto 0;
       display: flex;
       justify-content: space-between;
@@ -428,6 +442,18 @@ export default {
         color: @btn_main_color;
         span {
           text-decoration: underline;
+          cursor: pointer;
+        }
+        div:nth-of-type(1) {
+          position: relative;
+        }
+        .language-box {
+          height: 200px;
+          width: 220px;
+          position: absolute;
+          top: 10px;
+          left: -20px;
+          z-index: 100;
         }
       }
     }

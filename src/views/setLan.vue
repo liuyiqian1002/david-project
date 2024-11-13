@@ -124,6 +124,7 @@ export default {
       line-height: 40px;
       background-position: 95% center;
       background-size: 30px 30px;
+      cursor: pointer;
       &.active {
         background: url(../assets/images/common/ic_langue_selected.png)
           no-repeat;

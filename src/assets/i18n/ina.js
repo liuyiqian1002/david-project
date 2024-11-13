@@ -67,6 +67,7 @@ module.exports = {
     reliable: "MITRA ANDA YANG DAPAT DIANDALKAN",
     safety:
       "Keselamatan adalah yang utama, untuk melindungi aset dan keamanan informasi Anda, kami akan terus meningkatkannya.",
+    downloadSubTitle: "Unduh aplikasi kami untuk pengalaman yang lebih baik",
   },
   Coin: {
     Selectcurrency: "Selecionar moeda legal",
@@ -203,6 +204,9 @@ module.exports = {
     outTips: "OK para sair",
     seccess: "sair com sucesso",
     avatar: "Clique para mudar o avatar",
+    back: "kembali",
+    news: "memberitahu",
+    personalInfo: "informasi pribadi",
   },
   receivingQRCode: {
     title: "Recebendo código",

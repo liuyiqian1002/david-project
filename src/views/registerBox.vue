@@ -107,12 +107,12 @@
             </div> -->
       </div>
     </div>
-    <div class="tips">
+    <!-- <div class="tips">
       <p class="safety_tips">
         <img src="../assets/images/common/safety_tips.png" alt="" />
         {{ $t("base.safetyTips") }}
       </p>
-    </div>
+    </div> -->
     <van-popup v-model="showSelPhoneAre" position="bottom" round>
       <van-picker
         show-toolbar

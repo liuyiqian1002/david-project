@@ -120,7 +120,7 @@
           <transaction></transaction>
         </div>
         <div v-else-if="activeIndex == 4">
-          <recharge></recharge>
+          <rechargeQrcode ref="rechargeQrcode"></rechargeQrcode>
         </div>
         <div v-else-if="activeIndex == 3">
           <H5Center ref="H5HelpCenter"></H5Center>
@@ -140,7 +140,9 @@ import userInfo from "@/views/user/userInfo";
 import safety from "@/views/safety";
 import H5Center from "@/components/H5";
 import recommendFriend from "@/views/recommendFriend";
-import recharge from "./recharge.vue";
+// import recharge from "./recharge.vue";
+import rechargeQrcode from "./rechargeQrcode.vue";
+import accRecord from "./accRecord.vue";
 import withdrawCoin from "./withdrawCoin.vue";
 import transaction from "./transaction.vue";
 import news from "./News.vue";
@@ -160,6 +162,7 @@ import {
   List,
   CountDown,
 } from "vant";
+// import AccRecord from './accRecord.vue';
 export default {
   name: "property",
   components: {
@@ -181,10 +184,12 @@ export default {
     safety,
     recommendFriend,
     H5Center,
-    recharge,
+    // recharge,
     withdrawCoin,
     transaction,
     news,
+    rechargeQrcode,
+    accRecord,
   },
   data() {
     return {
@@ -266,6 +271,7 @@ export default {
         console.log(this.DataList);
         this.CNYTotal = CNYTotal;
         this.Total = Total;
+        // this.toRecord(this.DataList[0]);
       });
     },
     petty() {
@@ -279,12 +285,16 @@ export default {
     },
     toRecord(i) {
       this.$store.commit("setCoinInfo", i);
-      this.$router.push({
-        path: "/acc_record",
-        query: {
-          coin: i.Coin,
-        },
-      });
+      // this.$nextTick((_) => {
+      //   console.error(this.$refs.accRecord,'accRecord');
+      //   this.$refs.accRecord.setCoinInfo(i);
+      // })
+      // this.$router.push({
+      //   path: "/acc_record",
+      //   query: {
+      //     coin: i.Coin,
+      //   },
+      // });
     },
     getEntityUser() {
       let data = {
@@ -413,9 +423,9 @@ export default {
     align-items: flex-start;
     .nav-list {
       //
-      width: 300px;
+      width: 360px;
       .content {
-        width: 300px;
+        width: 100%;
         margin-top: 30px;
         padding-left: 60px;
         .cell {
