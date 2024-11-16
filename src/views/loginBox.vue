@@ -48,7 +48,12 @@
       </div> -->
       <div class="txt_box">
         <div class="item phone" v-show="navIndex == 0">
-          <span @click="showSelPhoneAre = true">+{{ PhoneAre }}</span>
+          <!-- <span @click="showSelPhoneAre = true">+{{ PhoneAre }}</span> -->
+          <span>
+            <van-dropdown-menu>
+              <van-dropdown-item v-model="PhoneAre" :options="phoneAreList" />
+            </van-dropdown-menu>
+          </span>
           <input
             type="text"
             :placeholder="$t('login.phone')"
@@ -181,7 +186,7 @@ export default {
       navIndex: 0,
       showSelPhoneAre: false, //区号选择
       phoneAreList: [], //区号
-      PhoneAre: "1",
+      PhoneAre: "34", // 默认Spanish
       showLanguage: false,
     };
   },
@@ -282,6 +287,21 @@ export default {
   },
 };
 </script>
+<style lang="less">
+.van-dropdown-menu {
+  .van-dropdown-menu__bar {
+    background: transparent;
+    border-radius: 20px;
+    .van-dropdown-menu__title {
+      color: @font_3_color;
+    }
+  }
+  .van-cell {
+    background: #1f1f2f;
+    color: @font_3_color;
+  }
+}
+</style>
 <style lang="less" scoped>
 .login_wrap_warpper {
   position: relative;
