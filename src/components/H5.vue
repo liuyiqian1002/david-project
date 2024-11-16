@@ -97,7 +97,7 @@ export default {
   padding-bottom: 120px;
   .txt {
     p {
-      font-size: 38px;
+      font-size: 28px;
       color: #1ced34;
       margin-bottom: 10px;
     }

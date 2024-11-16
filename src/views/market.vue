@@ -160,26 +160,26 @@ export default {
     this.time = setInterval((_) => {
       this.getSymbolsPageList();
     }, 6000);
-    setTimeout((_) => {
-      // 创建文本节点
-      let html = ` <ul class="nav">
-                    <li>
-                        ${this.$t("market.name")}
-                    </li>
-                    <li>
-                       ${this.$t("market.closePrice")}
-                    </li>
-                    <li>
-                       ${this.$t("market.gainRate")}
-                    </li>
-                </ul>`;
-      // $('.van-sticky').append(html)
-      var para = document.createElement("div");
-      para.id = "Nav";
-      var element = document.getElementsByClassName("van-sticky");
-      element[0].appendChild(para);
-      document.getElementById("Nav").innerHTML = html;
-    }, 500);
+    // setTimeout((_) => {
+    //   // 创建文本节点
+    //   let html = ` <ul class="nav">
+    //                 <li>
+    //                     ${this.$t("market.name")}
+    //                 </li>
+    //                 <li>
+    //                    ${this.$t("market.closePrice")}
+    //                 </li>
+    //                 <li>
+    //                    ${this.$t("market.gainRate")}
+    //                 </li>
+    //             </ul>`;
+    //   // $('.van-sticky').append(html)
+    //   var para = document.createElement("div");
+    //   para.id = "Nav";
+    //   var element = document.getElementsByClassName("van-sticky");
+    //   element[0].appendChild(para);
+    //   document.getElementById("Nav").innerHTML = html;
+    // }, 500);
   },
   methods: {
     search(i) {

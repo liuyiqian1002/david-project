@@ -172,6 +172,9 @@ export default {
   margin: 50px 0 0 100px;
   .logo {
     margin: 20px 0 0 0;
+    img{
+      width: 250px;
+    }
   }
   .main-footer {
     display: flex;
@@ -188,11 +191,11 @@ export default {
         }
       }
       .title {
-        font-size: 24px;
+        font-size: 18px;
         margin-bottom: 20px;
       }
       .text {
-        font-size: 18px;
+        font-size: 14px;
         margin-bottom: 36px;
         width: 140px;
         height: 20px;
@@ -206,8 +209,8 @@ export default {
     .qrcode-box {
       flex-grow: 0.4;
       .code {
-        width: 180px;
-        height: 180px;
+        width: 150px;
+        height: 150px;
         background: #fff;
         margin: 0 auto;
         margin-bottom: 20px;
@@ -221,7 +224,7 @@ export default {
         align-items: center;
         .google,
         .apple {
-          width: 200px;
+          width: 48%;
           height: 56px;
           line-height: 56px;
           background: rgba(0, 0, 0, 0.26);
@@ -232,10 +235,19 @@ export default {
           justify-content: flex-start;
           align-items: center;
           color: @font_3_color;
+          p{
+            font-size: 14px;
+            // word-wrap: normal;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          padding-right: 10px;
+          
           img {
-            width: 40px;
-            height: 40px;
-            margin: 0 20px;
+            width: 30px;
+            height: 30px;
+            margin: 0 15px;
           }
         }
         .google {

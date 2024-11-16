@@ -205,11 +205,11 @@ export default {
       margin-left: 20px;
       p {
         &:nth-of-type(1) {
-          font-size: 20px;
+          font-size: 16px;
           font-weight: 500;
         }
         &:nth-of-type(2) {
-          font-size: 16px;
+          font-size: 12px;
         }
       }
     }
@@ -220,7 +220,7 @@ export default {
     align-items: center;
     justify-self: flex-start;
     color: @font_color;
-    font-size: 24px;
+    font-size: 18px;
     align-items: center;
     margin-left: -200px;
     li {
@@ -235,7 +235,7 @@ export default {
     display: flex;
     align-items: center;
     .down_load_ico {
-      width: 26px;
+      width: 20px;
       margin-right: 22px;
       cursor: pointer;
     }

@@ -137,6 +137,7 @@ export default {
   },
   methods: {
     getSymbolsEntity() {
+      if (!this.SymbolsId) return;
       let data = { SymbolsId: this.SymbolsId };
       GetSymbolsEntity(data).then((r) => {
         console.log(">>>>>>>>>>>>");
@@ -188,6 +189,7 @@ export default {
           ? localStorage.getItem("MINT_lang")
           : "zh-CN";
         let height = _clientHeight;
+        if(!symbolId) return
         this.$refs.iframe.src =
           this.$config.imgPath +
           `/Product/Index/${symbolId}?LanguageVersion=${lang}`;
