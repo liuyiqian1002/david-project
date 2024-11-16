@@ -102,9 +102,12 @@
           </label>
           <p @click="toH5">{{ $t("register.agreement") }}</p>
         </div>
-        <!-- <div class="login">
-                {{$t('register.hasAcc')}} <span @click="$router.push('/login')">{{$t('register.loginNow')}} </span>
-            </div> -->
+        <div class="login">
+          {{ $t("register.hasAcc") }}
+          <span @click="$router.push('/login')"
+            >{{ $t("register.loginNow") }}
+          </span>
+        </div>
       </div>
     </div>
     <!-- <div class="tips">
@@ -582,16 +585,17 @@ export default {
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      p{
+      p {
         color: @main_color;
         margin-left: 20px;
       }
     }
     .login {
-      margin-top: 20px;
+      margin-top: 40px;
       text-align: center;
       span {
         color: @main_color;
+        cursor: pointer;
       }
     }
   }

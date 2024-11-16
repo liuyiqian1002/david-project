@@ -102,6 +102,14 @@
             $t("login.forgetPwd")
           }}</span>
         </div>
+        <div class="got-to-register">
+          <div class="content-box">
+            <span>{{ $t("login.hasAcc") }}？</span>
+            <span @click="$router.push('/register')" class="mc">{{
+              $t("login.Registernow")
+            }}</span>
+          </div>
+        </div>
       </div>
       <!-- <div class="tips"> -->
       <!-- <p>{{$t('login.hasAcc')}}？ <span class="mc"  @click="$router.push('/register')" >{{$t("login.Registernow")}}</span></p> -->
@@ -284,6 +292,7 @@ export default {
   align-items: center;
   .login_wrap {
     // background: @background-color;
+    position: relative;
     width: 601px;
     height: 600px !important;
     background: #1f1f2f;
@@ -336,6 +345,18 @@ export default {
         &.active {
           .cf;
           color: @main_color;
+        }
+      }
+    }
+    .got-to-register {
+      position: absolute;
+      top: 500px;
+      width: 90%;
+      .content-box {
+        width: 350px;
+        margin: 0 auto;
+        span:nth-of-type(2) {
+          cursor: pointer;
         }
       }
     }

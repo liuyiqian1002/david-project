@@ -249,7 +249,7 @@ export default {
 
             .main_btn {
               width: 50%;
-              height: 100%;
+              height: 80%;
               // width: 120px;
               margin: 0 10px;
               background-color: @panel_color;
