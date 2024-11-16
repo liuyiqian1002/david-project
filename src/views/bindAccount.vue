@@ -259,7 +259,7 @@ export default {
     margin: 30px auto 0;
     label {
       color: @font_color;
-      font-size: 22px;
+      font-size: 16px;
     }
     .item {
       margin: 30px 0;
@@ -286,7 +286,7 @@ export default {
         width: 100%;
         height: 50px;
         padding-left: 30px;
-        font-size: 18px;
+        font-size: 14px;
         background: transparent;
         // &::-ms-input-placeholder {
         //   /* Internet Explorer 10-11 */
@@ -319,7 +319,7 @@ export default {
           text-align: center;
           margin-right: 10px;
           color: @font_2_color;
-          font-size: 20px;
+          font-size: 15px;
           &::before {
             content: "";
             width: 20px;
@@ -357,7 +357,7 @@ export default {
           transform: translate(0, -50%);
           background: @main_color;
           color: @font_3_color;
-          font-size: 18px;
+          font-size: 14px;
           // padding: 5px 10px;
           height: 50%;
           width: 160px;

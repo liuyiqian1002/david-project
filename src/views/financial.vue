@@ -372,14 +372,14 @@ export default {
       &:nth-of-type(1) {
         padding-top: 54px;
         color: #fff;
-        font-size: 76px;
+        font-size: 60px;
         font-weight: 500;
         opacity: 0.8;
       }
       &:nth-of-type(2) {
         color: @font_3_color;
         margin-top: 10px;
-        font-size: 28px;
+        font-size: 20px;
         opacity: 0.8;
       }
     }
@@ -426,7 +426,7 @@ export default {
       position: relative;
       color: @font_1_color;
       padding-left: 30px;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 500px;
       margin: 20px 0;
       &::before {
@@ -449,7 +449,7 @@ export default {
         color: @font_1_color;
         height: 100%;
         width: 100%;
-        font-size: 20px;
+        font-size: 15px;
         border-radius: 16px;
       }
     }
@@ -473,7 +473,7 @@ export default {
             > p {
               color: @sub-font-color;
               text-align: center;
-              font-size: 20px;
+              font-size: 15px;
               &:nth-of-type(2) {
                 color: @main2_color;
               }
@@ -485,7 +485,7 @@ export default {
               > p {
                 color: @font_3_color;
                 text-align: center;
-                font-size: 20px;
+                font-size: 15px;
                 // &:nth-of-type(2){
                 //     color: @font_4_color;
                 // }
@@ -499,7 +499,7 @@ export default {
       text-align: center;
       color: @sub-font-color;
       margin: 20px 0;
-      font-size: 24px;
+      font-size: 18px;
     }
     > .btns {
       width: 100%;
@@ -509,7 +509,7 @@ export default {
         height: 60px;
         margin: 30px 0;
         border-radius: 12px;
-        font-size: 18px;
+        font-size: 14px;
       }
       .main_btn {
         background: @background-linear;

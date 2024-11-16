@@ -824,7 +824,7 @@ export default {
       margin-left: 15px;
       margin-top: -10px;
       border-top-left-radius: 30px;
-      font-size: 26px;
+      font-size: 20px;
       border-bottom-right-radius: 30px;
       padding: 10px;
       background-color: #c72aff;
@@ -856,7 +856,7 @@ export default {
           width: 960px;
           height: 144px;
           font-family: Source Han Sans CN;
-          font-size: 64px;
+          font-size: 48px;
           color: #fff;
           text-align: left;
           line-height: 80px;
@@ -870,7 +870,7 @@ export default {
           width: 1034px;
           height: 71px;
           font-family: Source Han Sans CN;
-          font-size: 54px;
+          font-size: 45px;
           color: #fff;
           text-align: left;
           opacity: 1;
@@ -905,7 +905,7 @@ export default {
           width: 360px;
           height: 24px;
           font-family: Source Han Sans CN;
-          font-size: 24;
+          font-size: 18px;
           color: #606060;
           text-align: left;
           opacity: 1;
@@ -976,7 +976,7 @@ export default {
       height: 60px;
       line-height: 60px;
       font-family: Source Han Sans CN;
-      font-size: 50px;
+      font-size: 42px;
       color: #fff;
       text-align: center;
       opacity: 1;
@@ -1004,7 +1004,7 @@ export default {
         border: 1px solid #b7b7b7;
         border-radius: 36px;
         opacity: 1;
-        font-size: 28px;
+        font-size: 21px;
         text-align: center;
         color: @font_3_color;
       }
@@ -1024,7 +1024,7 @@ export default {
           display: flex;
           // justify-content: space-between;
           span {
-            font-size: 30px;
+            font-size: 22px;
             &:nth-of-type(1) {
               color: @main_color;
               // width: 85%;
@@ -1053,7 +1053,7 @@ export default {
             -webkit-box-orient: vertical;
             color: @font_color;
             font-family: Source Han Sans CN;
-            font-size: 32px;
+            font-size: 24px;
             color: #fff;
             text-align: left;
             opacity: 1;
@@ -1127,7 +1127,7 @@ export default {
                 }
               }
               p {
-                font-size: 26px;
+                font-size: 20px;
                 color: @font_color;
               }
             }
@@ -1212,7 +1212,7 @@ export default {
                 }
               }
               .name {
-                font-size: 24px;
+                font-size: 18px;
                 color: #ffffff;
                 text-align: center;
                 margin-top: 20px;
@@ -1228,7 +1228,7 @@ export default {
                 width: 80%;
                 height: 40px;
                 line-height: 40px;
-                font-size: 24px;
+                font-size: 18px;
                 color: #000;
                 background: #07eefe;
                 text-align: center;
@@ -1272,12 +1272,12 @@ export default {
               p {
                 &:nth-of-type(1) {
                   color: @font_color;
-                  font-size: 32px;
+                  font-size: 24px;
                   font-weight: 500;
                 }
                 &:nth-of-type(2) {
                   color: @font_color;
-                  font-size: 24px;
+                  font-size: 18px;
                 }
               }
             }
@@ -1296,7 +1296,7 @@ export default {
       margin: 50px 0;
       height: 72px;
       font-family: Source Han Sans CN;
-      font-size: 72px;
+      font-size: 55px;
       color: #fff;
       text-align: center;
       opacity: 1;
@@ -1306,7 +1306,7 @@ export default {
       margin: 50px 0 100px 0;
       height: 41px;
       font-family: Source Han Sans CN;
-      font-size: 36px;
+      font-size: 27px;
       color: #fff;
       text-align: center;
       opacity: 1;
@@ -1328,14 +1328,14 @@ export default {
         justify-content: space-between;
         align-items: center;
         .lf {
-          font-size: 32px;
+          font-size: 24px;
           img {
             width: 30px;
           }
         }
         .fr {
           color: @font_color;
-          font-size: 28px;
+          font-size: 21px;
           margin-right: 40px;
           img {
             width: 32px;
@@ -1359,10 +1359,10 @@ export default {
               p {
                 &:nth-of-type(1) {
                   font-weight: 500;
-                  font-size: 32px;
+                  font-size: 24px;
                   color: @font_3_color;
                   span {
-                    font-size: 18px;
+                    font-size: 14px;
                     color: @minor-font-color;
                     margin-left: 5px;
                   }
@@ -1380,7 +1380,7 @@ export default {
             p {
               font-weight: 400;
               color: @main_color;
-              font-size: 35px;
+              font-size: 25px;
             }
             text-align: center;
           }
@@ -1388,13 +1388,13 @@ export default {
             p {
               &:nth-of-type(1) {
                 font-weight: 600;
-                font-size: 36px;
+                font-size: 27px;
                 color: @font_color;
               }
               &:nth-of-type(2) {
                 font-weight: 600;
                 color: @minor-font-color;
-                font-size: 20px;
+                font-size: 15px;
               }
             }
             text-align: center;
@@ -1450,7 +1450,7 @@ export default {
           // max-width: 354px;
           height: 32px;
           font-family: Source Han Sans CN;
-          font-size: 36px;
+          font-size: 27px;
           color: #fff;
           text-align: center;
           opacity: 1;
@@ -1460,7 +1460,7 @@ export default {
           max-width: 448px;
           height: 107px;
           font-family: Source Han Sans CN;
-          font-size: 24px;
+          font-size: 18px;
           color: #fff;
           text-align: center;
           line-height: 24px;

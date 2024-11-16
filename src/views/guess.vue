@@ -982,7 +982,7 @@ export default {
         background: @bg2_color;
         width: 33%;
         height: 50px;
-        font-size: 24px;
+        font-size: 18px;
         display: flex;
         align-items: center;
         color: #6d7291;
@@ -1075,7 +1075,7 @@ export default {
           display: inline-block;
           width: 40px;
           color: #0cc2a4;
-          font-size: 26px;
+          font-size: 18px;
           text-align: center;
           border: 2px solid @main_color;
           // border-image: linear-gradient(180deg, #393f52 0%, #8991a7 52%, #393f52) 1 1;
@@ -1112,7 +1112,7 @@ export default {
             background-size: contain;
           }
           p {
-            font-size: 26px;
+            font-size: 18px;
             color: #555767;
           }
           &.active {
@@ -1136,7 +1136,7 @@ export default {
             background-size: contain;
           }
           p {
-            font-size: 26px;
+            font-size: 18px;
             color: #555767;
           }
           &.active {
@@ -1198,7 +1198,7 @@ export default {
           background: @bg2_color;
           width: 16%;
           height: 60px;
-          font-size: 24px;
+          font-size: 18px;
           display: flex;
           align-items: center;
           color: @font_color;
@@ -1239,7 +1239,7 @@ export default {
       height: 100%;
       background: @background-linear;
       background-size: 100% 100%;
-      font-size: 28px;
+      font-size: 20px;
       border-radius: 10px;
       color: @font_3_color;
       &:disabled {
@@ -1265,7 +1265,7 @@ export default {
         min-height: 200px;
         .title {
           padding: 30px;
-          font-size: 24px;
+          font-size: 18px;
           // background-color:#1C2134;
         }
         ul {
@@ -1281,7 +1281,7 @@ export default {
             justify-content: space-between;
             padding: 10px 0;
             span {
-              font-size: 26px;
+              font-size: 20px;
               color: @font_color;
               display: flex;
               align-items: center;
@@ -1293,7 +1293,7 @@ export default {
               }
               label {
                 margin-right: 15px;
-                font-size: 26px;
+                font-size: 20px;
                 color: @main_color;
               }
             }
@@ -1344,7 +1344,7 @@ export default {
               width: 220px;
               color: @font_color;
               border-radius: 8px;
-              font-size: 28px;
+              font-size: 20px;
             }
           }
         }
@@ -1361,7 +1361,7 @@ export default {
     }
     p {
       color: #303133;
-      font-size: 32px;
+      font-size: 27px;
       padding-top: 40px;
     }
   }

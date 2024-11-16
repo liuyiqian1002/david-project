@@ -432,7 +432,7 @@ export default {
           display: flex;
           align-items: center;
           height: 68px;
-          font-size: 24px;
+          font-size: 18px;
           font-weight: 500;
           color: #989898;
           cursor: pointer;
@@ -505,7 +505,7 @@ export default {
               .tag {
                 width: 60px;
                 height: 30px;
-                font-size: 20px;
+                font-size: 15px;
                 display: inline-block;
                 background: url(../assets/images/common/me_tag_bg.png) no-repeat;
                 background-size: cover;

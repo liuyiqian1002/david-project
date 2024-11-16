@@ -420,19 +420,19 @@ export default {
         // background: transparent;
         span {
           color: @font_3_color;
-          font-size: 30px;
+          font-size: 22px;
           font-weight: 500;
         }
         span {
           position: absolute;
           left: 40px;
-          font-size: 28px;
+          font-size: 20px;
           font-weight: 500;
         }
         img {
           position: absolute;
           right: 40px;
-          font-size: 28px;
+          font-size: 20px;
           width: 56px;
           height: 56px;
 
@@ -450,21 +450,21 @@ export default {
       p {
         color: #fff;
         padding: 5px 0;
-        font-size: 26;
+        font-size: 20px;
         &:nth-of-type(1) {
-          font-size: 60px;
+          font-size: 45px;
           font-weight: bold;
         }
         &:nth-of-type(2) {
           font-weight: 500;
-          font-size: 28px;
+          font-size: 20px;
         }
         &:nth-of-type(3) {
           color: @font_3_color;
           position: absolute;
           bottom: 40px;
           font-weight: 500;
-          font-size: 28px;
+          font-size: 20px;
         }
       }
     }
@@ -543,14 +543,14 @@ export default {
       p {
         font-weight: 500;
         margin-bottom: 10px;
-        font-size: 32px;
+        font-size: 24px;
       }
       ul {
         display: flex;
         li {
           width: 33.33%;
           p {
-            font-size: 26px;
+            font-size: 20px;
             &:nth-of-type(1) {
               color: @minor-font-color;
               white-space: nowrap;
@@ -631,7 +631,7 @@ export default {
               .tag {
                 width: 60px;
                 height: 30px;
-                font-size: 20px;
+                font-size: 15px;
                 display: inline-block;
                 background: url(../assets/images/common/me_tag_bg.png) no-repeat;
                 background-size: cover;
@@ -651,7 +651,7 @@ export default {
         display: flex;
         align-items: center;
         height: 120px;
-        font-size: 34px;
+        font-size: 24px;
         font-weight: 500;
         color: #989898;
         img {

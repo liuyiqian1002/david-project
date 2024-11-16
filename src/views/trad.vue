@@ -223,7 +223,7 @@ export default {
   .btns {
     // position: fixed;
     display: flex !important;
-    width: 100%;
+    // width: 100%;
     bottom: 0px;
     background-color: @background-color; //rgb(15, 21, 36);
     padding: 20px 10px;
@@ -232,7 +232,8 @@ export default {
     margin: 0 auto;
     .main_btn {
       margin: 10px;
-      font-size: 28px;
+      font-size: 21px;
+      width: 300px;
       &.bay {
         background: @up-color;
       }
@@ -272,7 +273,7 @@ export default {
           }
         }
         &:nth-of-type(2) {
-          font-size: 36px;
+          font-size: 27px;
           color: @font_3_color;
           font-weight: 500;
         }
@@ -301,7 +302,7 @@ export default {
           }
           p {
             text-align: right;
-            font-size: 28px;
+            font-size: 21px;
             color: @font_4_color;
             width: 100%;
             white-space: nowrap;
@@ -315,13 +316,13 @@ export default {
     }
     .tips {
       .title {
-        font-size: 36px;
+        font-size: 27px;
         color: @font_3_color;
         font-weight: 500;
       }
       .cont {
         margin-top: 28px;
-        font-size: 28px;
+        font-size: 27px;
         font-weight: 400;
         color: @font_color;
       }

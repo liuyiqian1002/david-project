@@ -438,7 +438,7 @@ export default {
                     align-items: center;
                     label{
                         display: block;
-                        font-size: 20px;
+                        font-size: 15px;
                         color: @important-font-color;
                         margin-right: 20px;
                         width: 160px;
@@ -472,7 +472,7 @@ export default {
                     input{
                         height: 100%;
                         width: 100%;
-                        font-size: 20px;
+                        font-size: 15px;
                         background-color:@panel_color;
                     }
                     text-area{
@@ -514,7 +514,7 @@ export default {
             padding: 10px;
             height: 50px;
             line-height: 50px;
-            font-size: 20px;
+            font-size: 15px;
             color: @sub-font-color;
         }
         .btns{

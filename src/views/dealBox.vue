@@ -587,7 +587,7 @@ export default {
 
   .van-empty__description {
     color: @font_1_color;
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 .van-overlay {
@@ -673,7 +673,7 @@ export default {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 15px;
             padding: 10px;
             img {
               height: 30px;
@@ -780,7 +780,7 @@ export default {
             align-items: center;
             box-sizing: border-box;
             div {
-              font-size: 40px;
+              font-size: 30px;
             }
           }
           &.sell {
@@ -790,7 +790,7 @@ export default {
               background: @up-color; //url(../assets/images/common/minus_green.png) no-repeat center;
               color: @font_3_color;
               div {
-                font-size: 22px;
+                font-size: 30px;
               }
             }
             .add {
@@ -806,7 +806,7 @@ export default {
               background: @down-color;
               // background-size: 100% 100%;
               div {
-                font-size: 30px;
+                font-size: 20px;
               }
             }
             .add {
@@ -859,7 +859,7 @@ export default {
           .main_btn {
             height: 50px;
             line-height: 50px;
-            font-size: 22px;
+            font-size: 16px;
             &.sell {
               background: @up-color;
             }
@@ -874,7 +874,7 @@ export default {
         padding: 10px 0 10px 25px;
         p.bay {
           color: @up-color;
-          font-size: 20px;
+          font-size: 15px;
           font-weight: 500;
           text-align: center;
         }
@@ -919,7 +919,7 @@ export default {
       color: @font_2_color;
       .bot_br;
       span {
-        font-size: 20px;
+        font-size: 15px;
         &:nth-of-type(2) {
           color: @font_2_color;
         }
@@ -951,7 +951,7 @@ export default {
           color: @down-color;
         }
         .tag {
-          font-size: 22px;
+          font-size: 16px;
           font-weight: 500;
         }
         p {
@@ -962,7 +962,7 @@ export default {
           justify-content: space-between;
           span {
             color: @sub-font-color;
-            font-size: 20px;
+            font-size: 15px;
           }
         }
 
@@ -981,7 +981,7 @@ export default {
               line-height: 40px;
               width: 120px;
               background: #ff8ea1;
-              font-size: 16px;
+              font-size: 14px;
             }
           }
         }

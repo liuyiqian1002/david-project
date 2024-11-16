@@ -299,7 +299,7 @@ export default {
     > .title {
       position: relative;
       padding-left: 30px;
-      font-size: 28px;
+      font-size: 20px;
       font-weight: 500px;
       &::before {
         position: absolute;
@@ -334,14 +334,14 @@ export default {
         }
         .title {
           padding: 0 20px;
-          font-size: 30px;
+          font-size: 22px;
           font-weight: 500;
         }
         .price {
           padding: 10px 20px;
           span {
             color: @main_color;
-            font-size: 36px;
+            font-size: 26px;
           }
         }
         ul {

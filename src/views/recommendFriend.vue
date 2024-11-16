@@ -344,7 +344,7 @@ export default {
     }
     .van-tab {
       width: 190px !important;
-      font-size: 22px;
+      font-size: 16px;
       // flex: unset;
     }
     .van-tabs__nav--card {
@@ -413,17 +413,17 @@ export default {
         }
         padding: 40px 0 0 ;
         .title{
-          font-size: 24px;
+          font-size: 16px;
           font-weight: 400;
           color: @font_2_color;
         }
         .code_num{
           color: @main2_color;
-          font-size: 48px;
+          font-size: 36px;
           font-weight: 500;
         }
         .tips{
-          font-size: 20px;
+          font-size: 15px;
           width: 560px;
           text-align: center;
           margin: 20px auto;
@@ -437,7 +437,7 @@ export default {
         text-align: center;
         height: 60px;
         line-height: 60px;
-        font-size: 34px;
+        font-size: 24px;
         font-weight: 400;
       }
       .pic {
@@ -453,7 +453,7 @@ export default {
           text-align: center;
           margin: 0 auto;
           display: inline-block;
-          font-size: 28px;
+          font-size: 20px;
           padding: 10px;
           .bot_br;
         }
@@ -496,9 +496,9 @@ export default {
               }
               & + div {
                 p {
-                  font-size: 26px;
+                  font-size: 18px;
                   &:nth-of-type(1) {
-                    font-size: 28px;
+                    font-size: 18px;
                     color: #666;
                   }
                   &:nth-of-type(2) {

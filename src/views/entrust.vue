@@ -496,7 +496,7 @@ export default {
       flex: unset;
     }
     .van-tabs__nav--card {
-      height: 80px;
+      height: 50px;
       display: flex;
       justify-content: center;
     }
@@ -505,7 +505,7 @@ export default {
       width: 130px;
     }
     .van-tabs--card>.van-tabs__wrap{
-      height: 80px;
+      height: 50px;
     }
     .van-tabs__wrap{
       .van-tabs__nav--card .van-tab{

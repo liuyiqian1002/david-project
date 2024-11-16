@@ -327,7 +327,7 @@ export default {
       .welcome {
         padding-top: 126px;
         // color: #303030;
-        font-size: 46px;
+        font-size: 34px;
         font-family: PingFang SC;
         font-weight: 500;
       }
@@ -340,7 +340,7 @@ export default {
       justify-content: space-between;
       > div {
         color: @font_3_color;
-        font-size: 24px;
+        font-size: 18px;
         padding: 10px 0;
         &.active {
           .cf;
@@ -386,7 +386,7 @@ export default {
           width: 100%;
           height: 50px;
           padding-left: 30px;
-          font-size: 20px;
+          font-size: 15px;
           background-color: transparent;
           color: @font_3_color;
           &::-ms-input-placeholder {
@@ -419,7 +419,7 @@ export default {
             text-align: center;
             margin-right: 10px;
             color: @font_color;
-            font-size: 20px;
+            font-size: 15px;
             &::before {
               content: "";
               width: 20px;
@@ -450,7 +450,7 @@ export default {
       margin: 20px auto;
       .main_btn {
         height: 60px;
-        font-size: 20px;
+        font-size: 15px;
         background: @btn-background-linear;
         color: @font_3_color;
         font-weight: 600;
@@ -481,7 +481,7 @@ export default {
     .tips {
       width: 80%;
       margin: 80px auto;
-      font-size: 29px;
+      font-size: 21px;
       position: absolute;
       //   bottom: 90px;
       left: 0;
@@ -489,13 +489,13 @@ export default {
       width: 80%;
       margin: 0px auto;
       span {
-        font-size: 29px;
+        font-size: 21px;
         font-weight: 500;
       }
       .safety_tips {
         // display: flex;
         // align-items: center;
-        font-size: 24px;
+        font-size: 18px;
         margin-top: 15px;
         color: #919191;
         img {

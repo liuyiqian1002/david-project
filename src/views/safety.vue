@@ -123,17 +123,17 @@ export default {
         height: 60px;
         &:nth-of-type(1) {
           width: 70%;
-          font-size: 20px;
+          font-size: 15px;
         }
         &:nth-of-type(2) {
           img {
-            height: 25px;
+            height: 20px;
           }
         }
         input {
           height: 100%;
           width: 100%;
-          font-size: 26px;
+          font-size: 20px;
         }
         .vcode_bnt {
           position: absolute;
@@ -164,18 +164,18 @@ export default {
     position: absolute;
     left: 20px;
     top: 20px;
-    font-size: 30px;
+    font-size: 22px;
     color: @font_3_color;
     cursor: pointer;
   }
   .title {
-    font-size: 20px;
+    font-size: 15px;
     padding: 10px 0;
     p {
       width: 360px;
       color: @font_3_color;
       padding: 10px;
-      font-size: 24px;
+      font-size: 18px;
       margin: 0 auto;
     }
   }

@@ -429,7 +429,7 @@ export default {
     }
     .welcome {
       color: @font_color;
-      font-size: 36px;
+      font-size: 27px;
       font-family: PingFang SC;
       font-weight: 500;
     }
@@ -442,7 +442,7 @@ export default {
     > div {
       color: @font_color;
       font-size: 20px;
-      padding: 10px 0;
+      padding: 20px 0 10px 0;
       cursor: pointer;
       &.active {
         color: @font_text_main_color;
@@ -477,7 +477,7 @@ export default {
         width: 100%;
         height: 50px;
         padding-left: 30px;
-        font-size: 20px;
+        font-size: 15px;
         background-color: transparent;
         background: #0c0c0c;
         border-radius: 10px;
@@ -514,7 +514,7 @@ export default {
           text-align: center;
           margin-right: 10px;
           color: @font_color;
-          font-size: 20px;
+          font-size: 15px;
           &::before {
             content: "";
             width: 20px;
@@ -553,7 +553,7 @@ export default {
           background: @btn_main_color;
           border-radius: 8px;
           color: @font_3_color;
-          font-size: 20px;
+          font-size: 15px;
           padding: 10px;
           width: 160px;
           &:disabled {
@@ -576,7 +576,7 @@ export default {
     margin: 40px auto 40px;
     .main_btn {
       height: 50px;
-      font-size: 20px;
+      font-size: 15px;
       background-color: @main2_color;
       color: @font_3_color;
     }
@@ -608,15 +608,15 @@ export default {
 
     margin: 0px auto;
 
-    font-size: 20px;
+    font-size: 15px;
     span {
-      font-size: 20px;
+      font-size: 15px;
       font-weight: 500;
     }
     .safety_tips {
       // display: flex;
       // align-items: center;
-      font-size: 20px;
+      font-size: 15px;
       // margin-top: 15px;
       color: #fff;
       img {

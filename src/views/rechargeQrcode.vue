@@ -206,7 +206,7 @@ export default {
   .content {
     .title {
       color: @font_1_color;
-      font-size: 28px;
+      font-size: 21px;
     }
     ul {
       display: flex;
@@ -231,7 +231,7 @@ export default {
         align-items: center;
         label {
           display: block;
-          font-size: 28px;
+          font-size: 21px;
           color: @important-font-color;
           margin-right: 20px;
           width: 160px;
@@ -265,7 +265,7 @@ export default {
         input {
           height: 100%;
           width: 100%;
-          font-size: 26px;
+          font-size: 20px;
           background-color: transparent;
         }
         .address {
@@ -319,10 +319,10 @@ export default {
         color: @font_1_color;
         width: 80%;
         margin: 0 auto;
-        font-size: 28px;
+        font-size: 21px;
       }
       span {
-        font-size: 28px;
+        font-size: 21px;
       }
     }
   }

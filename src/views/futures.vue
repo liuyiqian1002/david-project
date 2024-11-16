@@ -307,14 +307,14 @@ body {
     .bot_br;
     margin-top: -1px;
     li {
-      font-size: 24px;
+      font-size: 18px;
       color: @font_color;
     }
   }
   .van-tab--active {
     .van-tab__text {
       font-weight: bold;
-      font-size: 22px;
+      font-size: 17px;
       color: #fff !important;
       // transform: scale(0.6);
       border-radius: 28px;
@@ -359,10 +359,10 @@ body {
             p {
               &:nth-of-type(1) {
                 font-weight: 500;
-                font-size: 20px;
+                font-size: 15px;
                 color: @font_3_color;
                 span {
-                  font-size: 14px;
+                  font-size: 12px;
                   color: @font_color;
                   margin-left: 5px;
                 }
@@ -379,13 +379,13 @@ body {
           p {
             &:nth-of-type(1) {
               font-weight: 500;
-              font-size: 20px;
+              font-size: 15px;
               color: @font_3_color;
             }
             &:nth-of-type(2) {
               font-weight: 600;
               color: @minor-font-color;
-              font-size: 14px;
+              font-size: 12px;
             }
           }
           text-align: center;

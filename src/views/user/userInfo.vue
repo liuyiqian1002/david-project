@@ -348,7 +348,7 @@ export default {
         }
       }
       p {
-        font-size: 24px;
+        font-size: 18px;
         color: @font_f_color;
         text-align: center;
         margin-top: 20px;
@@ -426,7 +426,7 @@ export default {
         background-color: @panel_color;
         width: 100%;
         color: @font_1_color;
-        font-size: 18px;
+        font-size: 14px;
       }
       .vcode_bnt {
         position: absolute;

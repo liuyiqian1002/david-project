@@ -852,7 +852,7 @@ body {
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 28px;
+          font-size: 21px;
           padding: 10px;
           img {
             height: 30px;
@@ -922,7 +922,7 @@ body {
         // height: 80px;
         // line-height: 80px;
         .bot_br;
-        font-size: 28px;
+        font-size: 21px;
         span {
           display: block;
           &:nth-of-type(1) {
@@ -964,7 +964,7 @@ body {
                 > div {
                   flex: 1;
                   text-align: center;
-                  font-size: 20px;
+                  font-size: 15px;
                   line-height: 50px;
                   color: @sub-font-color;
                   border: 1px solid @sub-font-color;
@@ -1005,7 +1005,7 @@ body {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    font-size: 40px;
+                    font-size: 30px;
                     color: @font_3_color;
                   }
                   &.buy {
@@ -1085,7 +1085,7 @@ body {
               padding: 10px;
               p.bay {
                 color: @up-color;
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 500;
                 text-align: center;
               }
@@ -1144,7 +1144,7 @@ body {
             line-height: 40px;
             span {
               &:not(:nth-last-of-type(1)) {
-                font-size: 18px;
+                font-size: 14px;
                 margin-right: 10px;
                 font-weight: 500;
               }
@@ -1165,7 +1165,7 @@ body {
               p {
                 color: @font_color;
                 padding: 10px 0;
-                font-size: 16px;
+                font-size: 14px;
                 &:nth-of-type(1) {
                   color: @sub-font-color;
                 }
